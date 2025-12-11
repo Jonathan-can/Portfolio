@@ -1,0 +1,227 @@
+<!--
+Photo de moi dès l'accueil à gauche
+Lien vers le CV
+Lien Voltaire ?
+Projets perso à faire 
+Parler des centres d'intérêts (judo, piano...)
+
+Skills (skill-item css) faire une barre déroulante
+nav bar hamburger
+
+Trouver quelque chose d'innovant à mettre dans le site 
+
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Développeur Informatique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="main-nav">
+        <div class="container nav-container">
+            <div class="logo">DevPortfolio</div>
+            <div class="nav-links">
+                <a href="#accueil" data-nav="accueil">Accueil</a>
+                <a href="#apropos" data-nav="apropos">À propos</a>
+                <a href="#projets" data-nav="projets">Projets</a>
+                <a href="#contact" data-nav="contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero page-section" data-page="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Bonjour, je suis <span>Alex Martin</span></h1>
+                <p>Étudiant en développement informatique passionné par la création de solutions innovantes et performantes. Je me spécialise dans le développement web full-stack et les applications mobiles.</p>
+                <a href="#projets" class="btn" data-nav="projets">Voir mes projets</a>
+            </div>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+
+    <!-- À propos -->
+    <section id="apropos" class="about page-section" data-page="apropos">
+        <div class="container">
+            <div class="section-title">
+                <h2>À propos de moi</h2>
+                <p>Découvrez mon parcours, mes compétences et ma passion pour le développement</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Étudiant en développement avec une passion pour l'innovation</h3>
+                    <p>Je suis actuellement en 3ème année de licence en informatique à l'Université de Technologie. Mon intérêt pour le développement a commencé dès le lycée et n'a cessé de grandir depuis.</p>
+                    <p>Je suis particulièrement attiré par les défis techniques et j'aime explorer de nouvelles technologies. Mon objectif est de devenir développeur full-stack et de contribuer à des projets innovants.</p>
+                    
+        <div class="skills">
+            <div class="skill-item">
+                <img src="https://img.icons8.com/color/200/html-5.png" alt="HTML" class="skill-icon">
+                <span class="skill-name">HTML</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://img.icons8.com/?size=512&id=21278&format=png" alt="CSS" class="skill-icon">
+                <span class="skill-name">CSS</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png" alt="JS" class="skill-icon">
+                <span class="skill-name">JavaScript</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://pngimg.com/d/mysql_PNG23.png" alt="SQL" class="skill-icon">
+                <span class="skill-name">My SQL</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://img.icons8.com/color/512/python.png" alt="Python" class="skill-icon">
+                <span class="skill-name">Python</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1067px-ISO_C%2B%2B_Logo.svg.png" alt="C++" class="skill-icon">
+                <span class="skill-name">C++</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://img.icons8.com/?size=1200&id=OU2ddOKw840K&format=png" alt="PowerApps" class="skill-icon">
+                <span class="skill-name">PowerApps</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://img.icons8.com/color/512/git.png" alt="Git" class="skill-icon">
+                <span class="skill-name">Git</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="skill-icon">
+                <span class="skill-name">GitHub</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://upload.wikimedia.org/wikipedia/fr/2/2e/Java_Logo.svg" alt="Java" class="skill-icon">
+                <span class="skill-name">Java</span>
+            </div>
+            <div class="skill-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/2560px-PHP-logo.svg.png" alt="PHP" class="skill-icon">
+                <span class="skill-name">PHP</span>
+            </div>
+        </div>
+
+                </div>
+                <div class="about-image">
+                    <div class="profile-placeholder">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs9cBqK4MnnzUb7jVkPlch1TWe4WB7jg4ebQ&s">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets -->
+    <section id="projets" class="projects page-section" data-page="projets">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mes projets</h2>
+                <p>Découvrez une sélection de mes réalisations en développement</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Les cartes de projets seront générées dynamiquement -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact page-section" data-page="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-moi</h2>
+                <p>N'hésitez pas à me contacter pour discuter de projets ou d'opportunités</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>alex.martin@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Téléphone</h3>
+                            <p>+33 6 12 34 56 78</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Localisation</h3>
+                            <p>Lyon, France</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">DevPortfolio</div>
+                <div class="footer-links">
+                    <a href="#accueil" data-nav="accueil">Accueil</a>
+                    <a href="#apropos" data-nav="apropos">À propos</a>
+                    <a href="#projets" data-nav="projets">Projets</a>
+                    <a href="#contact" data-nav="contact">Contact</a>
+                </div>
+                <p class="copyright">© 2023 Alex Martin. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
