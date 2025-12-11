@@ -18,64 +18,77 @@
             overflow-x: hidden;
         }
 
-        /* Canvas 3D Background */
-        #canvas3d {
+        /* Optimized Background with CSS only */
+        .bg-animation {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: 0;
-        }
-
-        /* Loading Screen */
-        #loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 1s ease-out;
-        }
-
-        #loading.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loader {
-            width: 100px;
-            height: 100px;
-            border: 3px solid rgba(99, 102, 241, 0.3);
-            border-top-color: #6366f1;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .loading-text {
-            margin-top: 2rem;
-            font-size: 1.5rem;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899, #6366f1);
-            background-size: 300% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradient-shift 3s ease infinite;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+                linear-gradient(125deg, #000 0%, #0a0a0a 100%);
+            animation: gradient-shift 15s ease infinite;
         }
 
         @keyframes gradient-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(20deg); }
+        }
+
+        /* Floating orbs - CSS only */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .orb1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+            top: 20%;
+            left: 10%;
+            animation: float1 20s ease-in-out infinite;
+        }
+
+        .orb2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
+            bottom: 20%;
+            right: 10%;
+            animation: float2 25s ease-in-out infinite;
+        }
+
+        .orb3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, #ec4899 0%, transparent 70%);
+            top: 60%;
+            left: 50%;
+            animation: float3 30s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, -50px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-50px, 50px); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, 30px); }
         }
 
         /* Content Container */
@@ -95,14 +108,20 @@
             align-items: center;
             z-index: 1000;
             backdrop-filter: blur(20px);
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.5);
             border-bottom: 1px solid rgba(99, 102, 241, 0.2);
-            opacity: 0;
-            animation: fadeInNav 1s ease-out 2s forwards;
+            animation: slideDown 0.8s ease-out;
         }
 
-        @keyframes fadeInNav {
-            to { opacity: 1; }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .logo {
@@ -112,7 +131,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
         }
 
         .nav-links {
@@ -148,10 +166,6 @@
             width: 100%;
         }
 
-        .nav-links a:hover {
-            text-shadow: 0 0 20px rgba(99, 102, 241, 0.8);
-        }
-
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -165,18 +179,17 @@
         .hero-content {
             text-align: center;
             max-width: 1000px;
-            opacity: 0;
-            animation: heroAppear 1.5s ease-out 2.5s forwards;
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
 
-        @keyframes heroAppear {
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: scale(0.8);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
-                transform: scale(1);
+                transform: translateY(0);
             }
         }
 
@@ -187,48 +200,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 80px rgba(99, 102, 241, 0.5);
             font-weight: 900;
             letter-spacing: -2px;
             position: relative;
+            animation: glow 3s ease-in-out infinite;
         }
 
-        .glitch {
-            position: relative;
-        }
-
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899, #f59e0b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .glitch::before {
-            animation: glitch1 2.5s infinite;
-            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-        }
-
-        .glitch::after {
-            animation: glitch2 2.5s infinite;
-            clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
-        }
-
-        @keyframes glitch1 {
-            0%, 100% { transform: translate(0); }
-            33% { transform: translate(-5px, 5px); }
-        }
-
-        @keyframes glitch2 {
-            0%, 100% { transform: translate(0); }
-            33% { transform: translate(5px, -5px); }
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.8));
+            }
         }
 
         .subtitle {
@@ -237,11 +221,13 @@
             color: #94a3b8;
             font-weight: 300;
             letter-spacing: 3px;
+            animation: fadeInUp 1s ease-out 0.5s both;
         }
 
         .typing-effect {
             display: inline-block;
             border-right: 3px solid #6366f1;
+            padding-right: 5px;
             animation: blink 0.7s infinite;
         }
 
@@ -254,6 +240,7 @@
             gap: 2rem;
             justify-content: center;
             margin-top: 3rem;
+            animation: fadeInUp 1s ease-out 0.7s both;
         }
 
         .btn {
@@ -273,7 +260,7 @@
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: white;
             border: none;
-            box-shadow: 0 0 40px rgba(99, 102, 241, 0.6);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
         }
 
         .btn-primary::before {
@@ -290,26 +277,26 @@
         }
 
         .btn-primary:hover::before {
-            width: 300px;
-            height: 300px;
+            width: 400px;
+            height: 400px;
         }
 
         .btn-primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 60px rgba(99, 102, 241, 0.8);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6);
         }
 
         .btn-secondary {
             background: transparent;
             color: #fff;
             border: 2px solid #6366f1;
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.2);
         }
 
         .btn-secondary:hover {
             background: rgba(99, 102, 241, 0.2);
             transform: translateY(-5px);
-            box-shadow: 0 10px 60px rgba(99, 102, 241, 0.6);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
         }
 
         /* Scroll Indicator */
@@ -399,7 +386,7 @@
             border-radius: 25px;
             border: 2px solid rgba(99, 102, 241, 0.3);
             backdrop-filter: blur(10px);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
         }
@@ -407,23 +394,25 @@
         .skill-card::before {
             content: '';
             position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 300%;
-            height: 300%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-radius: 50%;
             background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
             transition: all 0.5s;
         }
 
         .skill-card:hover::before {
-            top: -50%;
-            left: -50%;
+            width: 300%;
+            height: 300%;
         }
 
         .skill-card:hover {
             transform: translateY(-15px) scale(1.05);
             border-color: #6366f1;
-            box-shadow: 0 30px 80px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 25px 60px rgba(99, 102, 241, 0.4);
         }
 
         .skill-icon {
@@ -460,7 +449,7 @@
             overflow: hidden;
             border: 2px solid rgba(99, 102, 241, 0.3);
             backdrop-filter: blur(10px);
-            transition: all 0.5s;
+            transition: all 0.4s;
             cursor: pointer;
             position: relative;
         }
@@ -472,9 +461,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(236, 72, 153, 0.15));
             opacity: 0;
-            transition: opacity 0.5s;
+            transition: opacity 0.4s;
         }
 
         .project-card:hover::after {
@@ -482,8 +471,8 @@
         }
 
         .project-card:hover {
-            transform: translateY(-15px) scale(1.05);
-            box-shadow: 0 30px 80px rgba(99, 102, 241, 0.5);
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(99, 102, 241, 0.5);
             border-color: #6366f1;
         }
 
@@ -502,10 +491,12 @@
         .project-image::before {
             content: '';
             position: absolute;
+            top: -50%;
+            left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmer 3s infinite;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 4s linear infinite;
         }
 
         @keyframes shimmer {
@@ -594,7 +585,7 @@
             background: #6366f1;
             color: white;
             transform: translateY(-10px) scale(1.2);
-            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.6);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6);
         }
 
         /* Responsive */
@@ -620,16 +611,18 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .orb {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="loading">
-        <div class="loader"></div>
-        <div class="loading-text">Chargement...</div>
-    </div>
-
-    <canvas id="canvas3d"></canvas>
+    <div class="bg-animation"></div>
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
 
     <div class="content">
         <nav>
@@ -644,7 +637,7 @@
 
         <section class="hero" id="accueil">
             <div class="hero-content">
-                <h1 class="glitch" data-text="DÉVELOPPEUR">DÉVELOPPEUR</h1>
+                <h1>DÉVELOPPEUR</h1>
                 <p class="subtitle"><span class="typing-effect">SLAM</span></p>
                 <div class="cta-buttons">
                     <a href="#projets" class="btn btn-primary">Découvrir mes projets</a>
@@ -739,122 +732,6 @@
     </div>
 
     <script>
-        // 3D Particle Background using Canvas
-        const canvas = document.getElementById('canvas3d');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        let mouseX = 0;
-        let mouseY = 0;
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.z = Math.random() * 1500;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = (Math.random() - 0.5) * 0.5;
-                this.speedY = (Math.random() - 0.5) * 0.5;
-                this.speedZ = Math.random() * 2 + 1;
-            }
-
-            update() {
-                this.z -= this.speedZ;
-                if (this.z <= 0) {
-                    this.z = 1500;
-                    this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height;
-                }
-
-                const scale = 1000 / (1000 + this.z);
-                this.projectedX = (this.x - canvas.width / 2) * scale + canvas.width / 2;
-                this.projectedY = (this.y - canvas.height / 2) * scale + canvas.height / 2;
-                this.projectedSize = this.size * scale;
-
-                // Mouse interaction
-                const dx = mouseX - this.projectedX;
-                const dy = mouseY - this.projectedY;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 150) {
-                    const force = (150 - distance) / 150;
-                    this.x -= dx * force * 0.05;
-                    this.y -= dy * force * 0.05;
-                }
-            }
-
-            draw() {
-                const scale = 1000 / (1000 + this.z);
-                const alpha = Math.min(scale * 2, 1);
-                
-                const hue = (this.z / 1500) * 60 + 240;
-                ctx.fillStyle = `hsla(${hue}, 80%, 60%, ${alpha})`;
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = `hsl(${hue}, 80%, 60%)`;
-                
-                ctx.beginPath();
-                ctx.arc(this.projectedX, this.projectedY, this.projectedSize, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
-        for (let i = 0; i < 200; i++) {
-            particles.push(new Particle());
-        }
-
-        function connectParticles() {
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].projectedX - particles[j].projectedX;
-                    const dy = particles[i].projectedY - particles[j].projectedY;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 120) {
-                        const alpha = (1 - distance / 120) * 0.3;
-                        ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].projectedX, particles[i].projectedY);
-                        ctx.lineTo(particles[j].projectedX, particles[j].projectedY);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animate() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-
-            connectParticles();
-            requestAnimationFrame(animate);
-        }
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        // Loading screen
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loading').classList.add('hidden');
-            }, 2000);
-        });
-
-        animate();
-
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -878,7 +755,7 @@
 
         document.querySelectorAll('.skill-card, .project-card').forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(50px) scale(0.9)';
+            el.style.transform = 'translateY(50px) scale(0.95)';
             el.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
             observer.observe(el);
         });
