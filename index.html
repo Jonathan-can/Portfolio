@@ -1,227 +1,255 @@
-<!--
-Photo de moi dès l'accueil à gauche
-Lien vers le CV
-Lien Voltaire ?
-Projets perso à faire 
-Parler des centres d'intérêts (judo, piano...)
-
-Skills (skill-item css) faire une barre déroulante
-nav bar hamburger
-
-Trouver quelque chose d'innovant à mettre dans le site 
-
--->
-
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Développeur Informatique</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>[TON PRÉNOM] — Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Navigation -->
-    <nav id="main-nav">
-        <div class="container nav-container">
-            <div class="logo">DevPortfolio</div>
-            <div class="nav-links">
-                <a href="#accueil" data-nav="accueil">Accueil</a>
-                <a href="#apropos" data-nav="apropos">À propos</a>
-                <a href="#projets" data-nav="projets">Projets</a>
-                <a href="#contact" data-nav="contact">Contact</a>
-            </div>
-        </div>
+
+<body><canvas id="bg-canvas"></canvas>
+    <!-- NAV -->
+    <nav>
+        <div class="nav-logo">[<em>Prénom</em>]</div>
+        <div class="nav-links"><a href="#about">À propos</a><a href="#judo">Judo</a><a href="#skills">Compétences</a><a href="#projects">Projets</a><a href="#terminal">Terminal</a><a href="#contact">Contact</a><button id="theme-btn" title="Changer le thème">🌙</button></div>
     </nav>
-
-    <!-- Hero Section -->
-    <section id="accueil" class="hero page-section" data-page="accueil">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Bonjour, je suis <span>Alex Martin</span></h1>
-                <p>Étudiant en développement informatique passionné par la création de solutions innovantes et performantes. Je me spécialise dans le développement web full-stack et les applications mobiles.</p>
-                <a href="#projets" class="btn" data-nav="projets">Voir mes projets</a>
-            </div>
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-left">
+            <div class="hero-badge"><span class="badge-dot"></span>Disponible pour une alternance </div>
+            <h1 class="hero-name">TON<br><span class="outline">PRÉNOM.</span></h1>
+            <p class="hero-desc">Étudiant en <strong>BTS SIO</strong>, je développe des applications web et mobiles avec rigueur et méthode — les mêmes qualités que j'applique sur le tatami.
+            </p>
+            <p class="hero-role"><span id="typewriter"></span><span style="color:var(--accent);opacity:.7">|</span></p>
+            <div class="hero-cta"><a href="#projects" class="btn btn-primary">Voir mes projets</a><a href="#contact" class="btn btn-ghost">Me contacter</a></div>
         </div>
-        <div class="hero-bg"></div>
-    </section>
-
-    <!-- À propos -->
-    <section id="apropos" class="about page-section" data-page="apropos">
-        <div class="container">
-            <div class="section-title">
-                <h2>À propos de moi</h2>
-                <p>Découvrez mon parcours, mes compétences et ma passion pour le développement</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Étudiant en développement avec une passion pour l'innovation</h3>
-                    <p>Je suis actuellement en 3ème année de licence en informatique à l'Université de Technologie. Mon intérêt pour le développement a commencé dès le lycée et n'a cessé de grandir depuis.</p>
-                    <p>Je suis particulièrement attiré par les défis techniques et j'aime explorer de nouvelles technologies. Mon objectif est de devenir développeur full-stack et de contribuer à des projets innovants.</p>
-                    
-        <div class="skills">
-            <div class="skill-item">
-                <img src="https://img.icons8.com/color/200/html-5.png" alt="HTML" class="skill-icon">
-                <span class="skill-name">HTML</span>
-            </div>
-            <div class="skill-item">
-                <img src="https://img.icons8.com/?size=512&id=21278&format=png" alt="CSS" class="skill-icon">
-                <span class="skill-name">CSS</span>
-            </div>
-            <div class="skill-item">
-                <img src="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png" alt="JS" class="skill-icon">
-                <span class="skill-name">JavaScript</span>
-            </div>
-            <div class="skill-item">
-                <img src="https://pngimg.com/d/mysql_PNG23.png" alt="SQL" class="skill-icon">
-                <span class="skill-name">My SQL</span>
-            </div>
-            <div class="skill-item">
-                <img src="https://img.icons8.com/color/512/python.png" alt="Python" class="skill-icon">
-                <span class="skill-name">Python</span>
-            </div>
-            <div class="skill-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/1067px-ISO_C%2B%2B_Logo.svg.png" alt="C++" class="skill-icon">
-                <span class="skill-name">C++</span>
-            </div>
-            <div class="skill-item">
-                <img src="https://img.icons8.com/?size=1200&id=OU2ddOKw840K&format=png" alt="PowerApps" class="skill-icon">
-                <span class="skill-name">PowerApps</span>
-            </div>
-            <div class="skill-item">
-                <img src="https://img.icons8.com/color/512/git.png" alt="Git" class="skill-icon">
-                <span class="skill-name">Git</span>
-            </div>
-            <div class="skill-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" class="skill-icon">
-                <span class="skill-name">GitHub</span>
-            </div>
-            <div class="skill-item">
-                <img src="https://upload.wikimedia.org/wikipedia/fr/2/2e/Java_Logo.svg" alt="Java" class="skill-icon">
-                <span class="skill-name">Java</span>
-            </div>
-            <div class="skill-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/2560px-PHP-logo.svg.png" alt="PHP" class="skill-icon">
-                <span class="skill-name">PHP</span>
-            </div>
-        </div>
-
+        <div class="hero-right">
+            <div class="photo-frame">
+                <div class="photo-glow"></div>
+                <div class="photo-inner">
+                    <!-- ┌──────────────────────────────────────────────────────┐
+                         │ Pour ajouter ta photo,        remplace ce bloc par : │
+                         │ <img src="photo.jpg"                                 │
+                         │ style="width:100%;height:100%;                       │
+                         │ object-fit:cover; border-radius:17px">               │
+                         └──────────────────────────────────────────────────────┘ -->
+                    <div class="photo-icon">🧑‍💻</div>
+                    <div class="photo-hint">Ajoute ta photo ici <code>src="photo.jpg"</code></div>
                 </div>
-                <div class="about-image">
-                    <div class="profile-placeholder">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs9cBqK4MnnzUb7jVkPlch1TWe4WB7jg4ebQ&s">
+                <div class="judo-float"><svg class="black-belt-svg" viewBox="0 0 32 10"><rect width="32" height="10" rx="2" fill="#111"/><rect x="1" y="1" width="10" height="8" rx="1" fill="#0a0a0a"/><rect x="4" y="4" width="24" height="1.5" rx=".5" fill="rgba(255,255,255,.05)"/></svg>
+                    <span class="judo-float-text">🥋 Ceinture Noire</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-bar"></div><span>Défiler</span></div>
+    </section>
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="section-wrap">
+            <p class="s-label reveal">01 — À propos</p>
+            <h2 class="s-title reveal">Qui suis-<em>je</em>?</h2>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>Je suis <strong>[TON PRÉNOM]</strong>, étudiant en <strong>BTS SIO</strong>à <strong>[TON LYCÉE]</strong>, basé à <strong>[TA VILLE]</strong>. Passionné par le développement depuis plusieurs années, je construis des applications complètes,
+                        du front-end au back-end. </p>
+                    <p>Mon stack principal s'articule autour de <strong>PHP / Symfony</strong> côté serveur, et <strong>HTML, CSS, JavaScript</strong> côté interface. Je développe également en
+                        <strong>Android</strong>, gère des bases de données <strong>SQL</strong>et automatise des processus avec <strong>Microsoft Power Apps</strong>. </p>
+                    <p>En dehors du clavier, je pratique le <strong>judo en compétition</strong>depuis [X] ans — une discipline qui m'a forgé le caractère et appris l'importance de la rigueur et de la persévérance. </p>
+                    <div class="info-table">
+                        <div class="info-row"><span class="info-k">Prénom</span><span class="info-v">[TON PRÉNOM]</span></div>
+                        <div class="info-row"><span class="info-k">Formation</span><span class="info-v">BTS SIO — [TON LYCÉE]</span></div>
+                        <div class="info-row"><span class="info-k">Ville</span><span class="info-v">[TA VILLE]</span></div>
+                        <div class="info-row"><span class="info-k">Disponible</span><span class="info-v">Alternance dès [DATE]</span></div>
+                        <div class="info-row"><span class="info-k">Email</span><span class="info-v">[TON@EMAIL.COM]</span></div>
+                    </div>
+                </div>
+                <div class="stats-grid reveal d2">
+                    <div class="stat-card">
+                        <div class="stat-n" data-count="10">0</div>
+                        <div class="stat-l">Technologies</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-n" data-count="5">0</div>
+                        <div class="stat-l">Projets réalisés</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-n" data-count="2">0</div>
+                        <div class="stat-l">Années d'études</div>
+                    </div>
+                    <div class="stat-card" style="border-color:rgba(232,184,75,.2)">
+                        <div class="stat-n" style="color:var(--judo)" data-count="1">0</div>
+                        <div class="stat-l">🥋 Dan de Judo</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Projets -->
-    <section id="projets" class="projects page-section" data-page="projets">
-        <div class="container">
-            <div class="section-title">
-                <h2>Mes projets</h2>
-                <p>Découvrez une sélection de mes réalisations en développement</p>
+    <!-- JUDO -->
+    <section id="judo">
+        <div class="section-wrap">
+            <div class="judo-grid">
+                <div class="judo-visual reveal">
+                    <!-- Ceinture noire illustrée -->
+                    <div class="belt-card">
+                        <div class="belt-card-top"><span class="belt-emoji">🥋</span>
+                            <div>
+                                <div class="belt-card-title">Ceinture Noire</div>
+                                <div class="belt-card-sub">Judo · [TON CLUB]</div>
+                            </div>
+                        </div>
+                        <div class="belt-visual-strip">
+                            <div class="belt-knot"></div>
+                        </div>
+                        <div class="belt-card-stats">
+                            <div class="b-stat"><span class="b-num">[X]</span><span class="b-lbl">ans de pratique</span></div>
+                            <div class="b-divider"></div>
+                            <div class="b-stat"><span class="b-num">1er</span><span class="b-lbl">Dan</span></div>
+                            <div class="b-divider"></div>
+                            <div class="b-stat"><span class="b-num">[X]</span><span class="b-lbl">compétitions</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal d1">
+                    <p class="s-label judo-s-label">02 — Au-delà du code</p>
+                    <h2 class="s-title judo-s-title" style="margin-bottom:20px">La discipline<br>du <em>tatami</em></h2>
+                    <p class="judo-desc">Je pratique le <strong>judo depuis [X] ans</strong>au club de <strong>[TON CLUB]</strong>et j'ai décroché ma <strong>ceinture noire</strong> après des années d'entraînement et de compétition. Cette rigueur, cette capacité à analyser
+                        et à persévérer, je l'applique chaque jour dans mon travail de développeur.
+                    </p>
+                    <div class="values-grid">
+                        <div class="value-card"><span class="v-ico">🎯</span>
+                            <div>
+                                <div class="v-title">Rigueur</div>
+                                <div class="v-text">Code propre, structuré, documenté
+                                </div>
+                            </div>
+                        </div>
+                        <div class="value-card"><span class="v-ico">🔄</span>
+                            <div>
+                                <div class="v-title">Résilience</div>
+                                <div class="v-text">Debugger jusqu'à trouver la faille</div>
+                            </div>
+                        </div>
+                        <div class="value-card"><span class="v-ico">🤝</span>
+                            <div>
+                                <div class="v-title">Collectif</div>
+                                <div class="v-text">Pair-programming, revue de code</div>
+                            </div>
+                        </div>
+                        <div class="value-card"><span class="v-ico">⚡</span>
+                            <div>
+                                <div class="v-title">Adaptabilité</div>
+                                <div class="v-text">Nouvelles techno, nouveaux défis</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+    <!-- SKILLS -->
+    <section id="skills">
+        <div class="section-wrap">
+            <p class="s-label reveal">03 — Compétences</p>
+            <h2 class="s-title reveal">Mon <em>stack</em></h2>
+            <div class="skills-grid">
+                <div class="skill-card reveal">
+                    <div class="skill-icon">🌐</div>
+                    <div class="skill-name">Front-End</div>
+                    <div class="tags"><span class="tag hi">HTML5</span><span class="tag hi">CSS3</span><span class="tag hi">JavaScript</span><span class="tag">Responsive</span><span class="tag">Bootstrap</span></div>
+                </div>
+                <div class="skill-card reveal d1">
+                    <div class="skill-icon">⚙️</div>
+                    <div class="skill-name">Back-End</div>
+                    <div class="tags"><span class="tag hi">PHP</span><span class="tag hi">Symfony</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">REST API</span></div>
+                </div>
+                <div class="skill-card reveal d2">
+                    <div class="skill-icon">🗄️</div>
+                    <div class="skill-name">Base de données</div>
+                    <div class="tags"><span class="tag hi">SQL</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">Doctrine</span></div>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon">📱</div>
+                    <div class="skill-name">Mobile & No-Code</div>
+                    <div class="tags"><span class="tag hi">Android</span><span class="tag hi">Power Apps</span><span class="tag">Android Studio</span></div>
+                </div>
+                <div class="skill-card reveal d1">
+                    <div class="skill-icon">🛠️</div>
+                    <div class="skill-name">Outils & DevOps</div>
+                    <div class="tags"><span class="tag hi">Git</span><span class="tag hi">GitHub</span><span class="tag">Linux</span><span class="tag">VS Code</span><span class="tag">Composer</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- PROJECTS -->
+    <section id="projects">
+        <div class="section-wrap">
+            <p class="s-label reveal">04 — Projets</p>
+            <h2 class="s-title reveal">Ce que j'ai <em>construit</em></h2>
             <div class="projects-grid">
-                <!-- Les cartes de projets seront générées dynamiquement -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="contact page-section" data-page="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contactez-moi</h2>
-                <p>N'hésitez pas à me contacter pour discuter de projets ou d'opportunités</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Email</h3>
-                            <p>alex.martin@example.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Téléphone</h3>
-                            <p>+33 6 12 34 56 78</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Localisation</h3>
-                            <p>Lyon, France</p>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+                <div class="proj-card reveal">
+                    <div class="proj-idx">Projet 01</div>
+                    <h3 class="proj-title">[Nom du Projet]</h3>
+                    <p class="proj-desc">[Décris ton projet ici — ce qu'il fait, le contexte, et ce que tu as appris en le réalisant.]</p>
+                    <div class="proj-stack"><span class="proj-tag">PHP</span><span class="proj-tag">Symfony</span><span class="proj-tag">MySQL</span><span class="proj-tag">JavaScript</span></div>
+                    <div class="proj-links"><a href="#" class="p-link">GitHub</a><a href="#" class="p-link">Démo →</a></div>
                 </div>
-                
-                <div class="contact-form">
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="name">Nom</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Sujet</label>
-                            <input type="text" id="subject" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn">Envoyer le message</button>
-                    </form>
+                <div class="proj-card reveal d1">
+                    <div class="proj-idx">Projet 02</div>
+                    <h3 class="proj-title">[Nom du Projet]</h3>
+                    <p class="proj-desc">[Décris ton projet ici — ce qu'il fait, le contexte, et ce que tu as appris en le réalisant.]</p>
+                    <div class="proj-stack"><span class="proj-tag">Android</span><span class="proj-tag">Java</span><span class="proj-tag">SQLite</span></div>
+                    <div class="proj-links"><a href="#" class="p-link">GitHub</a><a href="#" class="p-link">Démo →</a></div>
+                </div>
+                <div class="proj-card reveal d2">
+                    <div class="proj-idx">Projet 03</div>
+                    <h3 class="proj-title">[Nom du Projet]</h3>
+                    <p class="proj-desc">[Décris ton projet ici — ce qu'il fait, le contexte, et ce que tu as appris en le réalisant.]</p>
+                    <div class="proj-stack"><span class="proj-tag">Python</span><span class="proj-tag">Power Apps</span><span class="proj-tag">SQL</span></div>
+                    <div class="proj-links"><a href="#" class="p-link">GitHub</a><a href="#" class="p-link">Démo →</a></div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
+    <!-- TERMINAL -->
+    <section id="terminal">
+        <div class="section-wrap">
+            <p class="s-label reveal">05 — Terminal</p>
+            <h2 class="s-title reveal">Explore mon <em>portfolio</em></h2>
+            <div class="term-window reveal">
+                <div class="term-bar">
+                    <div class="tdot r"></div>
+                    <div class="tdot y"></div>
+                    <div class="tdot g"></div><span class="tbar-title">portfolio@[TON PRÉNOM] — bash</span></div>
+                <div class="term-body" id="term-body">
+                    <div class="tl"><span class="tp">➜</span><span class="tc">./portfolio --help</span></div>
+                    <div class="tl to">Commandes disponibles: <span class="tk">help</span>· <span class="tk">about</span>· <span class="tk">skills</span>· <span class="tk">projects</span>· <span class="tk">contact</span>· <span class="tk">judo</span>· <span class="tk">clear</span></div>
+                    <div id="term-out"></div>
+                    <div class="term-input-row"><span class="tp">➜</span><input id="term-input" type="text" placeholder="tape une commande..." autocomplete="off" spellcheck="false" /></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="section-wrap">
+            <div class="contact-inner">
+                <p class="s-label reveal">06 — Contact</p>
+                <h2 class="s-title reveal">Travaillons <em>ensemble</em></h2>
+                <p class="contact-lead reveal">Je recherche une <strong>alternance</strong>à partir de <strong>[DATE]</strong>dans le développement web ou logiciel. Recruteur, développeur ou curieux — n'hésite pas à m'écrire. </p>
+                <div class="contact-cards reveal"><a href="mailto:[TON@EMAIL.COM]" class="c-card">✉️ [TON@EMAIL.COM]</a><a href="https://github.com/[TON_GITHUB]" target="_blank" class="c-card">🐙 GitHub</a><a href="https://linkedin.com/in/[TON_LINKEDIN]" target="_blank" class="c-card">💼 LinkedIn</a></div>
+                <a href="#" class="btn btn-primary reveal">Télécharger mon CV</a>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">DevPortfolio</div>
-                <div class="footer-links">
-                    <a href="#accueil" data-nav="accueil">Accueil</a>
-                    <a href="#apropos" data-nav="apropos">À propos</a>
-                    <a href="#projets" data-nav="projets">Projets</a>
-                    <a href="#contact" data-nav="contact">Contact</a>
-                </div>
-                <p class="copyright">© 2023 Alex Martin. Tous droits réservés.</p>
-            </div>
-        </div>
+        <div>© 2025 <em>[TON PRÉNOM]</em></div>
+        <div>🥋 Ceinture Noire de Judo · 💻 BTS SIO</div>
     </footer>
-
     <script src="script.js"></script>
 </body>
+
 </html>

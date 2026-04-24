@@ -1,309 +1,184 @@
-// Elements
-class NavigationElement {
-    constructor() {
-        this.navLinks = document.querySelectorAll('[data-nav]');
-        this.activeClass = 'active';
-    }
+ /* CANVAS BACKGROUND */
 
-    init() {
-        this.navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetPage = link.getAttribute('data-nav');
-                this.setActiveLink(targetPage);
-            });
-        });
-    }
+ (() => {
+         const c = document.getElementById('bg-canvas');
+         const ctx = c.getContext('2d');
+         let W, H, pts = [];
+         const resize = () => {
+             W = c.width = innerWidth;
+             H = c.height = innerHeight;
+         };
+         window.addEventListener('resize', resize);
+         resize();
+         for (let i = 0; i < 50; i++) pts.push({
+             x: Math.random() * W,
+             y: Math.random() * H,
+             vx: (Math.random() - .5) * .2,
+             vy: (Math.random() - .5) * .2,
+             r: Math.random() * 1.5 + .5
+         });
+         (function loop() {
+             ctx.clearRect(0, 0, W, H);
+             const dark = document.documentElement.dataset.theme !== 'light';
+             const rgb = dark ? '79,158,255' : '0,100,200';
+             pts.forEach(p => {
+                 p.x = (p.x + p.vx + W) % W;
+                 p.y = (p.y + p.vy + H) % H;
+                 ctx.beginPath();
+                 ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                 ctx.fillStyle = `rgba($ {
+                        rgb
+                    }
+                    , .5)`;
+                 ctx.fill();
+             });
+             pts.forEach((a, i) => pts.slice(i + 1).forEach(b => {
+                 const d = Math.hypot(a.x - b.x, a.y - b.y);
+                 if (d < 120) {
+                     ctx.beginPath();
+                     ctx.moveTo(a.x, a.y);
+                     ctx.lineTo(b.x, b.y);
+                     ctx.strokeStyle = `rgba($ {
+                            rgb
+                        }
+                        , $ {
+                            .13*(1-d/120)
+                        }
+                        )`;
+                     ctx.lineWidth = .5;
+                     ctx.stroke();
+                 }
+             }));
+             requestAnimationFrame(loop);
+         })();
+     }
 
-    setActiveLink(page) {
-        this.navLinks.forEach(link => {
-            link.classList.remove(this.activeClass);
-            if (link.getAttribute('data-nav') === page) {
-                link.classList.add(this.activeClass);
-            }
-        });
-    }
+ )();
+ /* THEME */
 
-    getActivePage() {
-        const activeLink = document.querySelector(`.nav-links a.${this.activeClass}`);
-        return activeLink ? activeLink.getAttribute('data-nav') : 'accueil';
-    }
-}
+ document.getElementById('theme-btn').addEventListener('click', () => {
+         const h = document.documentElement;
+         const light = h.dataset.theme === 'light';
+         h.dataset.theme = light ? 'dark' : 'light';
+         document.getElementById('theme-btn').textContent = light ? '🌙' : '☀️';
+     }
 
-class PageElement {
-    constructor() {
-        this.pages = document.querySelectorAll('.page-section');
-        this.activeClass = 'active';
-    }
+ );
+ /* TYPEWRITER */
 
-    init() {
-        // Initialiser l'observation d'intersection
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    this.showPage(entry.target.getAttribute('data-page'));
+ (() => {
+         const el = document.getElementById('typewriter');
+         const phrases = ['Développeur Web Full-Stack', 'Étudiant BTS SIO', 'Ceinture Noire de Judo', 'En recherche d\'alternance'];
+         let p = 0,
+             c = 0,
+             d = false;
+         const t = () => {
+             const ph = phrases[p];
+             if (!d) {
+                 el.textContent = ph.slice(0, ++c);
+                 if (c === ph.length) {
+                     d = true;
+                     setTimeout(t, 1800);
+                     return;
+                 }
+             } else {
+                 el.textContent = ph.slice(0, --c);
+                 if (c === 0) {
+                     d = false;
+                     p = (p + 1) % phrases.length;
+                 }
+             }
+             setTimeout(t, d ? 46 : 78);
+         };
+         t();
+     }
+
+ )();
+ /* SCROLL REVEAL */
+
+ const ro = new IntersectionObserver(e => {
+         e.forEach(x => {
+             if (x.isIntersecting) {
+                 x.target.classList.add('visible');
+                 ro.unobserve(x.target);
+             }
+         });
+     }
+
+     , {
+         threshold: .12
+     }
+
+ );
+ document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+ /* COUNTERS */
+
+ const co = new IntersectionObserver(e => {
+         if (e[0].isIntersecting) {
+             document.querySelectorAll('[data-count]').forEach(el => {
+                 const t = +el.dataset.count;
+                 let n = 0;
+                 const iv = setInterval(() => {
+                     n = Math.min(n + Math.ceil(t / 34), t);
+                     el.textContent = n;
+                     if (n >= t) clearInterval(iv);
+                 }, 26);
+             });
+             co.disconnect();
+         }
+     }
+
+     , {
+         threshold: .3
+     }
+
+ );
+ const sg = document.querySelector('.stats-grid');
+ if (sg) co.observe(sg);
+ /* TERMINAL */
+
+ (() => {
+         const out = document.getElementById('term-out');
+         const inp = document.getElementById('term-input');
+         const body = document.getElementById('term-body');
+         const cmds = {
+             help: () => `<div class="tl to">Commandes: <span class="tk">about</span> · <span class="tk">skills</span> · <span class="tk">projects</span> · <span class="tk">contact</span> · <span class="tk">judo</span> · <span class="tk">clear</span></div>`,
+             about: () => ` <div class="tl"><span class="tk">prénom </span> <span class="tv">[TON PRÉNOM]</span></div> <div class="tl"><span class="tk">formation </span> <span class="tv">BTS SIO — [TON LYCÉE]</span></div> <div class="tl"><span class="tk">ville </span> <span class="tv">[TA VILLE]</span></div> <div class="tl"><span class="tk">dispo </span> <span class="tv">Alternance dès [DATE]</span></div> <div class="tl"><span class="tk">email </span> <span class="tv">[TON@EMAIL.COM]</span></div>`,
+             skills: () => ` <div class="tl to">→ <span class="tk">Front-End</span>: <span class="tv">HTML5 · CSS3 · JavaScript · Bootstrap</span></div> <div class="tl to">→ <span class="tk">Back-End</span>: <span class="tv">PHP · Symfony · Python · Java</span></div> <div class="tl to">→ <span class="tk">BDD</span>: <span class="tv">SQL · MySQL · PostgreSQL · Doctrine</span></div> <div class="tl to">→ <span class="tk">Mobile</span>: <span class="tv">Android · Power Apps</span></div> <div class="tl to">→ <span class="tk">DevOps</span>: <span class="tv">Git · GitHub · Linux</span></div>`,
+             projects: () => ` <div class="tl to">01 · <span class="tv">[Nom du Projet]</span> — PHP · Symfony · MySQL</div> <div class="tl to">02 · <span class="tv">[Nom du Projet]</span> — Android · Java · SQLite</div> <div class="tl to">03 · <span class="tv">[Nom du Projet]</span> — Python · Power Apps · SQL</div>`,
+             contact: () => ` <div class="tl to">email: <span class="tv">[TON@EMAIL.COM]</span></div> <div class="tl to">github: <span class="tv">github.com/[TON_GITHUB]</span></div> <div class="tl to">linkedin: <span class="tv">linkedin.com/in/[TON_LINKEDIN]</span></div>`,
+             judo: () => ` <div class="tl"><span class="tk">discipline </span> <span class="tv">Judo</span></div> <div class="tl"><span class="tk">grade </span> <span class="tv">🥋 Ceinture Noire — 1er Dan</span></div> <div class="tl"><span class="tk">club </span> <span class="tv">[TON CLUB]</span></div> <div class="tl"><span class="tk">pratique </span> <span class="tv">[X] ans de compétition</span></div> <div class="tl to" style="margin-top:4px">« La même rigueur sur le tatami et dans le code. »</div>`,
+             clear: null
+         };
+         inp.addEventListener('keydown', e => {
+             if (e.key !== 'Enter') return;
+             const val = inp.value.trim().toLowerCase();
+             if (!val) return;
+             // Echo
+             const echo = document.createElement('div');
+             echo.className = 'tl';
+             echo.innerHTML = `<span class="tp">➜</span> <span class="tc">$ {
+                    val
                 }
-            });
-        }, { threshold: 0.3 });
+                </span>`;
+             out.appendChild(echo);
+             if (val === 'clear') {
+                 out.innerHTML = '';
+             } else if (cmds[val]) {
+                 const res = document.createElement('div');
+                 res.innerHTML = cmds[val]();
+                 out.appendChild(res);
+             } else {
+                 const err = document.createElement('div');
+                 err.innerHTML = `<span class="terr">commande introuvable: $ {
+                        val
+                    }
+                    </span> — tape <span class="tk">help</span>`;
+                 out.appendChild(err);
+             }
+             inp.value = '';
+             body.scrollTop = body.scrollHeight;
+         });
+     }
 
-        this.pages.forEach(page => observer.observe(page));
-    }
-
-    showPage(pageName) {
-        this.pages.forEach(page => {
-            if (page.getAttribute('data-page') === pageName) {
-                page.classList.add(this.activeClass);
-            } else {
-                page.classList.remove(this.activeClass);
-            }
-        });
-    }
-
-    scrollToPage(pageName) {
-        const targetPage = document.querySelector(`[data-page="${pageName}"]`);
-        if (targetPage) {
-            targetPage.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-
-    getCurrentPage() {
-        const activePage = document.querySelector(`.page-section.${this.activeClass}`);
-        return activePage ? activePage.getAttribute('data-page') : 'accueil';
-    }
-}
-
-// Services
-class NavigationService {
-    constructor(navigationElement, pageElement) {
-        this.navElement = navigationElement;
-        this.pageElement = pageElement;
-    }
-
-    init() {
-        this.navElement.init();
-        this.pageElement.init();
-        
-        // Synchroniser la navigation avec le défilement
-        this.setupNavigation();
-        this.setupSmoothScrolling();
-    }
-
-    setupNavigation() {
-        document.addEventListener('click', (e) => {
-            if (e.target.matches('[data-nav]') || e.target.closest('[data-nav]')) {
-                e.preventDefault();
-                const link = e.target.matches('[data-nav]') ? e.target : e.target.closest('[data-nav]');
-                const targetPage = link.getAttribute('data-nav');
-                
-                this.navigateTo(targetPage);
-            }
-        });
-    }
-
-    setupSmoothScrolling() {
-        // Gérer les ancres dans l'URL
-        window.addEventListener('hashchange', () => {
-            const hash = window.location.hash.substring(1);
-            if (hash && this.isValidPage(hash)) {
-                this.navigateTo(hash);
-            }
-        });
-
-        // Gérer l'URL initiale
-        if (window.location.hash) {
-            const initialPage = window.location.hash.substring(1);
-            if (this.isValidPage(initialPage)) {
-                setTimeout(() => this.navigateTo(initialPage), 100);
-            }
-        }
-    }
-
-    navigateTo(pageName) {
-        if (!this.isValidPage(pageName)) return;
-
-        this.navElement.setActiveLink(pageName);
-        this.pageElement.scrollToPage(pageName);
-        
-        // Mettre à jour l'URL
-        window.history.pushState(null, '', `#${pageName}`);
-    }
-
-    isValidPage(pageName) {
-        const validPages = ['accueil', 'apropos', 'projets', 'contact'];
-        return validPages.includes(pageName);
-    }
-
-    getCurrentPage() {
-        return this.pageElement.getCurrentPage();
-    }
-}
-
-class ProjectService {
-    constructor() {
-        this.projects = [
-            {
-                id: 1,
-                title: "E-commerce Écologique",
-                description: "Plateforme e-commerce spécialisée dans les produits écologiques avec système de paiement sécurisé et gestion d'inventaire.",
-                technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-                icon: "fas fa-shopping-cart",
-                demoUrl: "#",
-                codeUrl: "#"
-            },
-            {
-                id: 2,
-                title: "Application de Gestion de Tâches",
-                description: "Application web de gestion de tâches avec fonctionnalités de collaboration en équipe et calendrier intégré.",
-                technologies: ["Vue.js", "Firebase", "CSS3"],
-                icon: "fas fa-tasks",
-                demoUrl: "#",
-                codeUrl: "#"
-            },
-            {
-                id: 3,
-                title: "Chatbot Éducatif",
-                description: "Chatbot utilisant l'IA pour aider les étudiants en programmation avec des explications et des exemples de code.",
-                technologies: ["Python", "TensorFlow", "Flask", "NLP"],
-                icon: "fas fa-robot",
-                demoUrl: "#",
-                codeUrl: "#"
-            }
-        ];
-    }
-
-    getProjects() {
-        return this.projects;
-    }
-
-    renderProjects(container) {
-        const projectsGrid = container || document.querySelector('.projects-grid');
-        if (!projectsGrid) return;
-
-        projectsGrid.innerHTML = this.projects.map(project => `
-            <div class="project-card">
-                <div class="project-img">
-                    <i class="${project.icon}"></i>
-                </div>
-                <div class="project-info">
-                    <h3>${project.title}</h3>
-                    <p>${project.description}</p>
-                    <div class="project-tech">
-                        ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                    </div>
-                    <div class="project-links">
-                        <a href="${project.demoUrl}"><i class="fas fa-external-link-alt"></i> Voir le projet</a>
-                        <a href="${project.codeUrl}"><i class="fab fa-github"></i> Code source</a>
-                    </div>
-                </div>
-            </div>
-        `).join('');
-    }
-}
-
-// Application principale
-class PortfolioApp {
-    constructor() {
-        this.navigationElement = new NavigationElement();
-        this.pageElement = new PageElement();
-        this.navigationService = new NavigationService(this.navigationElement, this.pageElement);
-        this.projectService = new ProjectService();
-    }
-
-    init() {
-        // Initialiser les services
-        this.navigationService.init();
-        this.projectService.renderProjects();
-
-        // Initialiser le formulaire de contact
-        this.initContactForm();
-
-        // Animation au défilement pour les sections
-        this.initScrollAnimations();
-
-        console.log('Portfolio app initialisé avec la méthode POSE');
-    }
-
-    initContactForm() {
-        const contactForm = document.getElementById('contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                this.handleContactForm();
-            });
-        }
-    }
-
-    handleContactForm() {
-        // Simulation d'envoi de formulaire
-        const formData = new FormData(document.getElementById('contact-form'));
-        const data = Object.fromEntries(formData);
-        
-        console.log('Données du formulaire:', data);
-        alert('Message envoyé avec succès! (simulation)');
-        document.getElementById('contact-form').reset();
-    }
-
-    initScrollAnimations() {
-        // Animation pour les compétences
-        const skills = document.querySelectorAll('.skill');
-        const skillsObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 100);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        skills.forEach(skill => {
-            skill.style.opacity = '0';
-            skill.style.transform = 'translateY(20px)';
-            skill.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            skillsObserver.observe(skill);
-        });
-
-        // Animation pour les cartes de projets
-        const projectCards = document.querySelectorAll('.project-card');
-        const projectsObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 200);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        projectCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            projectsObserver.observe(card);
-        });
-    }
-}
-
-// Initialiser l'application quand le DOM est chargé
-document.addEventListener('DOMContentLoaded', () => {
-    const app = new PortfolioApp();
-    app.init();
-});
-
-// Gérer le rechargement de la page avec hash
-window.addEventListener('load', () => {
-    if (window.location.hash) {
-        const page = window.location.hash.substring(1);
-        const validPages = ['accueil', 'apropos', 'projets', 'contact'];
-        if (validPages.includes(page)) {
-            setTimeout(() => {
-                const targetSection = document.getElementById(page);
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 500);
-        }
-    }
-});
+ )();
