@@ -6,50 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jonathan CANEVET — Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body><canvas id="bg-canvas"></canvas>
     <!-- NAV -->
-    <nav>
-        <div class="nav-logo">[<em>Jonathan</em>]</div>
-        <div class="nav-links"><a href="#about">À propos</a><a href="#parcours">Parcours</a><a href="#judo">Judo</a><a href="#skills">Compétences</a><a href="#projects">Projets</a><a href="#terminal">Terminal</a><a href="#veille">Veille</a><a href="#contact">Contact</a><button id="theme-btn" title="Changer le thème">🌙</button></div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid nav-container">
+            <div class="nav-logo">[<em>Jonathan</em>]</div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <div class="nav-links ms-auto">
+                    <a href="#about">À propos</a><a href="#parcours">Parcours</a><a href="#judo">Judo</a><a href="#skills">Compétences</a><a href="#projects">Projets</a><a href="#terminal">Terminal</a><a href="#veille">Veille</a><a href="#contact">Contact</a><button id="theme-btn" title="Changer le thème">🌙</button>
+                </div>
+            </div>
+        </div>
     </nav>
     <!-- HERO -->
     <section id="hero">
-        <div class="hero-left">
-            <div class="hero-badge"><span class="badge-dot"></span>Disponible pour une alternance </div>
-            <h1 class="hero-name">Jonathan<br>CANEVET</h1>
-            <p class="hero-desc">Étudiant en <strong>BTS SIO</strong>, je développe des applications web et mobiles avec rigueur et méthode — les mêmes qualités que j'applique sur le tatami.
-            </p>
-            <p class="hero-role"><span id="typewriter"></span><span style="color:var(--accent);opacity:.7">|</span></p>
-            <div class="hero-cta"><a href="#projects" class="btn btn-primary">Voir mes projets</a><a href="#contact" class="btn btn-ghost">Me contacter</a></div>
-        </div>
-        <div class="hero-right">
-            <div class="photo-frame">
-                <div class="photo-glow"></div>
-                <div class="photo-inner">
-                    <img src="photo_index.png" alt="Jonathan CANEVET" style="width:100%; height:100%; object-fit:cover; border-radius:14px;">
+        <div class="container-fluid hero-container">
+            <div class="row align-items-center gy-5">
+                <div class="col-12 col-lg-7 hero-left">
+                    <div class="hero-badge"><span class="badge-dot"></span>Disponible pour une alternance </div>
+                    <h1 class="hero-name">Jonathan<br>CANEVET</h1>
+                    <p class="hero-desc">Étudiant en <strong>BTS SIO</strong>, je développe des applications web et mobiles avec rigueur et méthode — les mêmes qualités que j'applique sur le tatami.</p>
+                    <p class="hero-role"><span id="typewriter"></span><span style="color:var(--accent);opacity:.7">|</span></p>
+                    <div class="hero-cta"><a href="#projects" class="btn btn-primary">Voir mes projets</a><a href="#contact" class="btn btn-ghost">Me contacter</a></div>
                 </div>
-                <div class="judo-float">
-                    <span class="judo-float-text">🥋 Ceinture Noire Judo</span>
+                <div class="col-12 col-lg-5 hero-right d-none d-lg-flex">
+                    <div class="photo-frame">
+                        <div class="photo-glow"></div>
+                        <div class="photo-inner">
+                            <img src="photo_index.png" alt="Jonathan CANEVET" style="width:100%; height:100%; object-fit:cover; border-radius:14px;">
+                        </div>
+                        <div class="judo-float">
+                            <span class="judo-float-text">🥋 Ceinture Noire Judo</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="hero-scroll">
-            <div class="scroll-bar"></div><span>Défiler</span></div>
+            <div class="scroll-bar"></div><span>Défiler</span>
+        </div>
     </section>
     <!-- ABOUT -->
     <section id="about">
         <div class="section-wrap">
             <p class="s-label reveal">01 — À propos</p>
             <h2 class="s-title reveal">Qui suis-<em>je</em>?</h2>
-            <div class="about-grid">
-                <div class="about-text reveal">
-                    <p>Je suis <strong>Jonathan CANEVET</strong>, étudiant en <strong>BTS SIO</strong> à l'<strong>ESUPEC</strong>, basé à <strong>Cholet</strong>. Passionné par le développement depuis plusieurs années, je construis des applications complètes,
-                        du front-end au back-end. </p>
-                    <p>Mon stack principal s'articule autour de <strong>PHP / Symfony</strong> côté serveur, et <strong>HTML, CSS, JavaScript</strong> côté interface. Je développe également en
-                        <strong>Android</strong>, gère des bases de données <strong>SQL</strong>et automatise des processus avec <strong>Microsoft Power Apps</strong>. </p>
+            <div class="row gy-5 align-items-start about-grid">
+                <div class="col-12 col-lg-7 about-text reveal">
+                    <p>Je suis <strong>Jonathan CANEVET</strong>, étudiant en <strong>BTS SIO</strong> à l'<strong>ESUPEC</strong>, basé à <strong>Cholet</strong>. Passionné par le développement depuis plusieurs années, je construis des applications complètes, du front-end au back-end. </p>
+                    <p>Mon stack principal s'articule autour de <strong>PHP / Symfony</strong> côté serveur, et <strong>HTML, CSS, JavaScript</strong> côté interface. Je développe également en <strong>Android</strong>, gère des bases de données <strong>SQL</strong> et automatise des processus avec <strong>Microsoft Power Apps</strong>. </p>
                     <p>En dehors du clavier, je pratique le <strong>judo en compétition</strong> depuis <strong>16 ans</strong> — une discipline qui m'a forgé le caractère et appris l'importance de la rigueur et de la persévérance. </p>
                     <div class="info-table">
                         <div class="info-row"><span class="info-k">Prénom</span><span class="info-v">Jonathan CANEVET</span></div>
@@ -59,22 +71,32 @@
                         <div class="info-row"><span class="info-k">Email</span><span class="info-v">jocanevet49@gmail.com</span></div>
                     </div>
                 </div>
-                <div class="stats-grid reveal d2">
-                    <div class="stat-card">
-                        <div class="stat-n" data-count="15">0</div>
-                        <div class="stat-l">Technologies</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-n" data-count="5">0</div>
-                        <div class="stat-l">Projets & stages</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-n" data-count="2">0</div>
-                        <div class="stat-l">Années d'études</div>
-                    </div>
-                    <div class="stat-card" style="border-color:rgba(232,184,75,.2)">
-                        <div class="stat-n" style="color:var(--judo)" data-count="100">0</div>
-                        <div class="stat-l">% Motivé</div>
+                <div class="col-12 col-lg-5 reveal d2">
+                    <div class="row g-3 stats-grid">
+                        <div class="col-6">
+                            <div class="stat-card">
+                                <div class="stat-n" data-count="15">0</div>
+                                <div class="stat-l">Technologies</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-card">
+                                <div class="stat-n" data-count="5">0</div>
+                                <div class="stat-l">Projets & stages</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-card">
+                                <div class="stat-n" data-count="2">0</div>
+                                <div class="stat-l">Années d'études</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="stat-card" style="border-color:rgba(232,184,75,.2)">
+                                <div class="stat-n" style="color:var(--judo)" data-count="100">0</div>
+                                <div class="stat-l">% Motivé</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -120,41 +142,46 @@
     <section id="judo">
         <div class="section-wrap">
             <p class="s-label reveal">03 — Au-delà du code</p>
-            <div class="judo-grid">
-                <div class="reveal">
+            <div class="row gy-5 align-items-start judo-grid">
+                <div class="col-12 col-lg-6 reveal">
                     <h2 class="s-title judo-s-title" style="margin-bottom:20px">La discipline<br>du <em>tatami</em></h2>
-                    <p class="judo-desc">Je pratique le <strong>judo depuis 16 ans </strong>au club d'<strong>Energie Judo</strong> au May-Sur-Evre et j'ai décroché ma <strong>ceinture noire</strong> après des années d'entraînement et de compétition. Cette rigueur, cette capacité à analyser
-                        et à persévérer, je l'applique chaque jour dans mon travail de développeur.
-                    </p>
-                    <div class="values-grid">
-                        <div class="value-card"><span class="v-ico">🎯</span>
-                            <div>
-                                <div class="v-title">Rigueur</div>
-                                <div class="v-text">Code propre, structuré, documenté
+                    <p class="judo-desc">Je pratique le <strong>judo depuis 16 ans </strong>au club d'<strong>Energie Judo</strong> au May-Sur-Evre et j'ai décroché ma <strong>ceinture noire</strong> après des années d'entraînement et de compétition. Cette rigueur, cette capacité à analyser et à persévérer, je l'applique chaque jour dans mon travail de développeur.</p>
+                    <div class="row g-2 values-grid">
+                        <div class="col-6">
+                            <div class="value-card"><span class="v-ico">🎯</span>
+                                <div>
+                                    <div class="v-title">Rigueur</div>
+                                    <div class="v-text">Code propre, structuré, documenté</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="value-card"><span class="v-ico">🔄</span>
-                            <div>
-                                <div class="v-title">Résilience</div>
-                                <div class="v-text">Debugger jusqu'à trouver la faille</div>
+                        <div class="col-6">
+                            <div class="value-card"><span class="v-ico">🔄</span>
+                                <div>
+                                    <div class="v-title">Résilience</div>
+                                    <div class="v-text">Debugger jusqu'à trouver la faille</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="value-card"><span class="v-ico">🤝</span>
-                            <div>
-                                <div class="v-title">Collectif</div>
-                                <div class="v-text">Pair-programming, revue de code</div>
+                        <div class="col-6">
+                            <div class="value-card"><span class="v-ico">🤝</span>
+                                <div>
+                                    <div class="v-title">Collectif</div>
+                                    <div class="v-text">Pair-programming, revue de code</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="value-card"><span class="v-ico">⚡</span>
-                            <div>
-                                <div class="v-title">Adaptabilité</div>
-                                <div class="v-text">Nouvelles techno, nouveaux défis</div>
+                        <div class="col-6">
+                            <div class="value-card"><span class="v-ico">⚡</span>
+                                <div>
+                                    <div class="v-title">Adaptabilité</div>
+                                    <div class="v-text">Nouvelles techno, nouveaux défis</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="reveal d1">
+                <div class="col-12 col-lg-6 reveal d1">
                     <h3 class="piano-s-title">L'apprentissage<br>du <em>piano</em></h3>
                     <p class="piano-desc">En parallèle de mes études et de ma passion pour le code, j'apprends le piano en autonomie. C'est une pratique complémentaire qui développe ma concentration, ma persévérance et ma capacité à décomposer des problèmes complexes en étapes simples.</p>
                     <div class="piano-benefits">
@@ -189,31 +216,41 @@
         <div class="section-wrap">
             <p class="s-label reveal">04 — Compétences</p>
             <h2 class="s-title reveal">Mon <em>stack</em></h2>
-            <div class="skills-grid">
-                <div class="skill-card reveal">
-                    <div class="skill-icon">💻</div>
-                    <div class="skill-name">Langages</div>
-                    <div class="tags"><span class="tag hi">Java</span><span class="tag hi">PHP</span><span class="tag hi">JavaScript</span><span class="tag hi">C++</span><span class="tag hi">Python</span><span class="tag hi">HTML</span><span class="tag hi">CSS</span><span class="tag hi">SQL</span></div>
+            <div class="row g-4 skills-grid">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="skill-card reveal">
+                        <div class="skill-icon">💻</div>
+                        <div class="skill-name">Langages</div>
+                        <div class="tags"><span class="tag hi">Java</span><span class="tag hi">PHP</span><span class="tag hi">JavaScript</span><span class="tag hi">C++</span><span class="tag hi">Python</span><span class="tag hi">HTML</span><span class="tag hi">CSS</span><span class="tag hi">SQL</span></div>
+                    </div>
                 </div>
-                <div class="skill-card reveal d1">
-                    <div class="skill-icon">⚙️</div>
-                    <div class="skill-name">Frameworks & Outils</div>
-                    <div class="tags"><span class="tag hi">Symfony</span><span class="tag hi">Android Studio</span><span class="tag hi">Microsoft Power Apps</span><span class="tag hi">REST API</span><span class="tag hi">Bootstrap</span></div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="skill-card reveal d1">
+                        <div class="skill-icon">⚙️</div>
+                        <div class="skill-name">Frameworks & Outils</div>
+                        <div class="tags"><span class="tag hi">Symfony</span><span class="tag hi">Android Studio</span><span class="tag hi">Microsoft Power Apps</span><span class="tag hi">REST API</span><span class="tag hi">Bootstrap</span></div>
+                    </div>
                 </div>
-                <div class="skill-card reveal d2">
-                    <div class="skill-icon">🗄️</div>
-                    <div class="skill-name">Base de données</div>
-                    <div class="tags"><span class="tag hi">SQL</span><span class="tag hi">MySQL</span><span class="tag hi">Doctrine</span><span class="tag hi">SQL Server</span><span class="tag hi">NoSQL</span></div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="skill-card reveal d2">
+                        <div class="skill-icon">🗄️</div>
+                        <div class="skill-name">Base de données</div>
+                        <div class="tags"><span class="tag hi">SQL</span><span class="tag hi">MySQL</span><span class="tag hi">Doctrine</span><span class="tag hi">SQL Server</span><span class="tag hi">NoSQL</span></div>
+                    </div>
                 </div>
-                <div class="skill-card reveal">
-                    <div class="skill-icon">🔧</div>
-                    <div class="skill-name">Contrôle de version</div>
-                    <div class="tags"><span class="tag hi">Git</span><span class="tag hi">GitHub</span><span class="tag">Branches</span><span class="tag">Pull Requests</span></div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="skill-card reveal">
+                        <div class="skill-icon">🔧</div>
+                        <div class="skill-name">Contrôle de version</div>
+                        <div class="tags"><span class="tag hi">Git</span><span class="tag hi">GitHub</span><span class="tag">Branches</span><span class="tag">Pull Requests</span></div>
+                    </div>
                 </div>
-                <div class="skill-card reveal d1">
-                    <div class="skill-icon">🤖</div>
-                    <div class="skill-name">Intelligence Artificielle</div>
-                    <div class="tags"><span class="tag hi">Maîtrise pratique</span><span class="tag">GitHub Copilot</span><span class="tag">Claude</span></div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="skill-card reveal d1">
+                        <div class="skill-icon">🤖</div>
+                        <div class="skill-name">Intelligence Artificielle</div>
+                        <div class="tags"><span class="tag hi">Maîtrise pratique</span><span class="tag">GitHub Copilot</span><span class="tag">Claude</span></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -223,39 +260,49 @@
         <div class="section-wrap">
             <p class="s-label reveal">05 — Projets & Stages</p>
             <h2 class="s-title reveal">Ce que j'ai <em>construit</em></h2>
-            <div class="projects-grid">
-                <div class="proj-card reveal">
-                    <div class="proj-idx">Projet 01</div>
-                    <h3 class="proj-title">Amap'market</h3>
-                    <p class="proj-desc">Application web de gestion d'une AMAP (Association pour le Maintien d'une Agriculture Paysanne). Permet aux adhérents de consulter et commander des paniers de produits locaux, et aux producteurs de gérer leur catalogue et leurs livraisons.</p>
-                    <div class="proj-stack"><span class="proj-tag">PHP</span><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span><span class="proj-tag">MySQL</span><span class="proj-tag">Bootstrap</span></div>
-                    <div class="proj-links"><a href="https://github.com/Ewen-Evin/AMAPMarket" target="_blank" class="p-link">GitHub</a></div>
+            <div class="row g-4 projects-grid">
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="proj-card reveal h-100">
+                        <div class="proj-idx">Projet 01</div>
+                        <h3 class="proj-title">Amap'market</h3>
+                        <p class="proj-desc">Application web de gestion d'une AMAP (Association pour le Maintien d'une Agriculture Paysanne). Permet aux adhérents de consulter et commander des paniers de produits locaux, et aux producteurs de gérer leur catalogue et leurs livraisons.</p>
+                        <div class="proj-stack"><span class="proj-tag">PHP</span><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span><span class="proj-tag">MySQL</span><span class="proj-tag">Bootstrap</span></div>
+                        <div class="proj-links"><a href="https://github.com/Ewen-Evin/AMAPMarket" target="_blank" class="p-link">GitHub</a></div>
+                    </div>
                 </div>
-                <div class="proj-card reveal d1">
-                    <div class="proj-idx">Projet 02</div>
-                    <h3 class="proj-title">Gestion des escales — La Rochelle</h3>
-                    <p class="proj-desc">Système de gestion des escales du port de La Rochelle. Suivi des navires, planification des quais, gestion des équipages et édition de rapports d'escale. Projet orienté base de données avec interface d'administration complète.</p>
-                    <div class="proj-stack"><span class="proj-tag">PHP</span><span class="proj-tag">Symfony</span><span class="proj-tag">Doctrine</span><span class="proj-tag">MySQL</span><span class="proj-tag">Android Studio</span><span class="proj-tag">Bootstrap</span><span class="proj-tag">REST API</span></div>
-                    <div class="proj-links"><a href="https://github.com/azevan230/PPE3" target="_blank" class="p-link">GitHub</a></div>
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="proj-card reveal d1 h-100">
+                        <div class="proj-idx">Projet 02</div>
+                        <h3 class="proj-title">Gestion des escales — La Rochelle</h3>
+                        <p class="proj-desc">Système de gestion des escales du port de La Rochelle. Suivi des navires, planification des quais, gestion des équipages et édition de rapports d'escale. Projet orienté base de données avec interface d'administration complète.</p>
+                        <div class="proj-stack"><span class="proj-tag">PHP</span><span class="proj-tag">Symfony</span><span class="proj-tag">Doctrine</span><span class="proj-tag">MySQL</span><span class="proj-tag">Android Studio</span><span class="proj-tag">Bootstrap</span><span class="proj-tag">REST API</span></div>
+                        <div class="proj-links"><a href="https://github.com/azevan230/PPE3" target="_blank" class="p-link">GitHub</a></div>
+                    </div>
                 </div>
-                <div class="proj-card reveal d2">
-                    <div class="proj-idx">Projet 03</div>
-                    <h3 class="proj-title">Gestion de tournois de judo</h3>
-                    <p class="proj-desc">Application Android de gestion de tournois de judo. Saisie des participants, tirage des poules, gestion des résultats en temps réel et classement final automatique. Projet qui m'a permis d'allier passion du judo et développement mobile.</p>
-                    <div class="proj-stack"><span class="proj-tag">PHP</span><span class="proj-tag">Symfony</span><span class="proj-tag">Doctrine</span><span class="proj-tag">MySQL</span><span class="proj-tag">Android Studio</span><span class="proj-tag">Bootstrap</span><span class="proj-tag">REST API</span></div>
-                    <div class="proj-links"><a href="https://github.com/dootod/tournois-app-web" target="_blank" class="p-link">GitHub</a></div>
+                <div class="col-12 col-md-6 col-xl-4">
+                    <div class="proj-card reveal d2 h-100">
+                        <div class="proj-idx">Projet 03</div>
+                        <h3 class="proj-title">Gestion de tournois de judo</h3>
+                        <p class="proj-desc">Application Android de gestion de tournois de judo. Saisie des participants, tirage des poules, gestion des résultats en temps réel et classement final automatique. Projet qui m'a permis d'allier passion du judo et développement mobile.</p>
+                        <div class="proj-stack"><span class="proj-tag">PHP</span><span class="proj-tag">Symfony</span><span class="proj-tag">Doctrine</span><span class="proj-tag">MySQL</span><span class="proj-tag">Android Studio</span><span class="proj-tag">Bootstrap</span><span class="proj-tag">REST API</span></div>
+                        <div class="proj-links"><a href="https://github.com/dootod/tournois-app-web" target="_blank" class="p-link">GitHub</a></div>
+                    </div>
                 </div>
-                <div class="proj-card reveal stage-card">
-                    <div class="proj-idx stage-badge">Stage 01 — Batistyl</div>
-                    <h3 class="proj-title">Application Power Apps — Batistyl</h3>
-                    <p class="proj-desc">Développement en totale autonomie d'une application métier de A à Z sur Microsoft Power Apps. Recueil des besoins, conception, développement et déploiement. Une expérience complète du cycle de vie d'une application en entreprise.</p>
-                    <div class="proj-stack"><span class="proj-tag">Power Apps</span><span class="proj-tag">Power Automate</span><span class="proj-tag">Dataverse</span><span class="proj-tag">SharePoint</span></div>
+                <div class="col-12 col-md-6 col-xl-6">
+                    <div class="proj-card reveal stage-card h-100">
+                        <div class="proj-idx stage-badge">Stage 01 — Batistyl</div>
+                        <h3 class="proj-title">Application Power Apps — Batistyl</h3>
+                        <p class="proj-desc">Développement en totale autonomie d'une application métier de A à Z sur Microsoft Power Apps. Recueil des besoins, conception, développement et déploiement. Une expérience complète du cycle de vie d'une application en entreprise.</p>
+                        <div class="proj-stack"><span class="proj-tag">Power Apps</span><span class="proj-tag">Power Automate</span><span class="proj-tag">Dataverse</span><span class="proj-tag">SharePoint</span></div>
+                    </div>
                 </div>
-                <div class="proj-card reveal d1 stage-card">
-                    <div class="proj-idx stage-badge">Stage 02 — Sogal</div>
-                    <h3 class="proj-title">Intégration web & refonte — Sogal</h3>
-                    <p class="proj-desc">Ajout de graphiques de suivi qualité sur un site interne (visualisation de données métier) et participation active à la refonte d'un site web de l'entreprise — intégration, maquettage et développement front-end.</p>
-                    <div class="proj-stack"><span class="proj-tag">PHP</span><span class="proj-tag">Symfony</span><span class="proj-tag">Doctrine</span><span class="proj-tag">MySQL</span><span class="proj-tag">Bootstrap</span><span class="proj-tag">Chart.js</span><span class="proj-tag">SCSS</span><span class="proj-tag">Twig</span><span class="proj-tag">Swiper.js</span></div>
+                <div class="col-12 col-md-6 col-xl-6">
+                    <div class="proj-card reveal d1 stage-card h-100">
+                        <div class="proj-idx stage-badge">Stage 02 — Sogal</div>
+                        <h3 class="proj-title">Intégration web & refonte — Sogal</h3>
+                        <p class="proj-desc">Ajout de graphiques de suivi qualité sur un site interne (visualisation de données métier) et participation active à la refonte d'un site web de l'entreprise — intégration, maquettage et développement front-end.</p>
+                        <div class="proj-stack"><span class="proj-tag">PHP</span><span class="proj-tag">Symfony</span><span class="proj-tag">Doctrine</span><span class="proj-tag">MySQL</span><span class="proj-tag">Bootstrap</span><span class="proj-tag">Chart.js</span><span class="proj-tag">SCSS</span><span class="proj-tag">Twig</span><span class="proj-tag">Swiper.js</span></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -279,7 +326,6 @@
             </div>
         </div>
     </section>
-
     <!-- VEILLE -->
     <section id="veille">
         <div class="section-wrap">
@@ -292,7 +338,6 @@
                         <div class="veille-main">
                             <h3 class="veille-title">Veille Structurée via Google Alerts</h3>
                             <p class="veille-description">Je maintiens une veille technologique active et efficace via <strong>Google Alerts</strong>, un outil simple mais puissant qui me notifie automatiquement des nouveautés pertinentes. Plutôt que de consulter manuellement des sources, je laisse les alertes venir à moi, me permettant de rester informé sans effort.</p>
-
                             <div class="alerts-list">
                                 <div class="alert-item">
                                     <span class="alert-badge">Symfony</span>
@@ -310,7 +355,6 @@
                                     <span class="alert-freq">À la demande</span>
                                 </div>
                             </div>
-
                             <p class="veille-benefit"><strong>Bénéfices :</strong> Je reçois uniquement les informations pertinentes filtrées par Google, je peux consulter à mon rythme, et je reste toujours à jour sur les évolutions majeures de mes technologies.</p>
                         </div>
                     </div>
@@ -318,7 +362,6 @@
             </div>
         </div>
     </section>
-
     <!-- CONTACT -->
     <section id="contact">
         <div class="section-wrap">
@@ -336,6 +379,7 @@
         <div>© 2025 <em>Jonathan CANEVET</em></div>
         <div>💻 BTS SIO · 🥋 Ceinture Noire de Judo</div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 

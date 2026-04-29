@@ -94,19 +94,24 @@ nav {
     left: 0;
     right: 0;
     z-index: 200;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 56px;
-    height: 68px;
-    background: rgba(8, 12, 20, .75);
+    height: auto;
+    min-height: 68px;
+    background: rgba(8, 12, 20, .92);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
     transition: background .35s;
+    padding: 0;
 }
 
 [data-theme="light"] nav {
-    background: rgba(245, 247, 252, .8);
+    background: rgba(245, 247, 252, .92);
+}
+
+.nav-container {
+    padding: 0 40px;
+    min-height: 68px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-logo {
@@ -122,10 +127,61 @@ nav {
     font-style: normal;
 }
 
+.navbar-toggler {
+    border-color: var(--border);
+    background: var(--surface);
+    padding: 6px 10px;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+[data-theme="light"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(10,15,31,0.75)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 2px rgba(79, 158, 255, .3);
+}
+
+.navbar-collapse {
+    background: rgba(8, 12, 20, .97);
+    border-top: 1px solid var(--border);
+    margin-top: 0;
+    padding: 12px 0;
+}
+
+@media (min-width: 992px) {
+    .navbar-collapse {
+        background: transparent;
+        border-top: none;
+        padding: 0;
+    }
+}
+
+[data-theme="light"] .navbar-collapse {
+    background: rgba(245, 247, 252, .98);
+}
+
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 34px;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+        padding: 8px 20px;
+    }
+    .nav-links a {
+        padding: 8px 0;
+        width: 100%;
+    }
 }
 
 .nav-links a {
@@ -162,15 +218,24 @@ nav {
 
 #hero {
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 400px;
+    display: flex;
     align-items: center;
-    gap: 60px;
-    padding: 100px 56px 60px;
-    max-width: 1200px;
-    margin: 0 auto;
     position: relative;
     z-index: 1;
+    padding-top: 68px;
+}
+
+.hero-container {
+    padding: 60px 56px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .hero-container {
+        padding: 40px 20px;
+    }
 }
 
 .hero-left {
@@ -449,9 +514,6 @@ nav {
 }
 
 .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
     align-items: start;
 }
 
@@ -498,11 +560,6 @@ nav {
     color: var(--text);
 }
 
-.stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
-}
 
 .stat-card {
     background: var(--surface);
@@ -536,13 +593,6 @@ nav {
 
 #judo {
     background: var(--bg);
-}
-
-.judo-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
 }
 
 .judo-grid > div {
@@ -615,11 +665,6 @@ nav {
     color: var(--text);
 }
 
-.values-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-}
 
 .value-card {
     background: rgba(232, 184, 75, .04);
@@ -730,11 +775,6 @@ nav {
     background: var(--bg2);
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 18px;
-}
 
 .skill-card {
     background: var(--surface);
@@ -907,11 +947,6 @@ nav {
     background: var(--bg);
 }
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-    gap: 22px;
-}
 
 .proj-card {
     background: var(--surface);
@@ -1502,26 +1537,34 @@ footer em {
 
 /* RESPONSIVE */
 
-@media(max-width:900px) {
-    nav {
-        padding: 0 20px;
-    }
-    .nav-links a {
-        display: none;
-    }
-    #hero {
-        grid-template-columns: 1fr;
-        padding: 100px 20px 60px;
-    }
-    .hero-right {
-        display: none;
-    }
-    .about-grid,
-    .judo-grid {
-        grid-template-columns: 1fr;
-    }
+@media(max-width:767px) {
     .section-wrap {
-        padding: 72px 20px;
+        padding: 60px 20px;
+    }
+    .veille-card {
+        flex-direction: column;
+        gap: 20px;
+        padding: 24px;
+    }
+    .veille-icon {
+        font-size: 2.5rem;
+    }
+    .alerts-list {
+        padding: 16px;
+    }
+    .alert-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+        padding: 12px 0;
+    }
+    .alert-freq {
+        text-align: left;
+    }
+    .veille-title {
+        font-size: 1.2rem;
+    }
+    .hero-scroll {
+        display: none;
     }
     footer {
         flex-direction: column;
