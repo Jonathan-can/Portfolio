@@ -114,6 +114,12 @@ nav {
     align-items: center;
 }
 
+@media (max-width: 991px) {
+    .nav-container {
+        padding: 0 16px;
+    }
+}
+
 .nav-logo {
     font-family: var(--font-disp);
     font-size: 1.1rem;
@@ -149,7 +155,7 @@ nav {
     background: rgba(8, 12, 20, .97);
     border-top: 1px solid var(--border);
     margin-top: 0;
-    padding: 12px 0;
+    padding: 8px 0 16px;
 }
 
 @media (min-width: 992px) {
@@ -174,13 +180,29 @@ nav {
 @media (max-width: 991px) {
     .nav-links {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-        padding: 8px 20px;
+        align-items: stretch;
+        gap: 0;
+        padding: 0 16px;
+        width: 100%;
     }
     .nav-links a {
-        padding: 8px 0;
-        width: 100%;
+        display: block;
+        padding: 13px 4px;
+        font-size: .95rem;
+        border-bottom: 1px solid var(--border);
+        color: var(--text-2);
+    }
+    .nav-links a:last-of-type {
+        border-bottom: none;
+    }
+    .nav-links a:hover {
+        color: var(--accent);
+        padding-left: 10px;
+    }
+    #theme-btn {
+        margin-top: 12px;
+        width: 42px;
+        height: 42px;
     }
 }
 
@@ -188,7 +210,7 @@ nav {
     font-size: .82rem;
     font-weight: 500;
     color: var(--text-2);
-    transition: color .2s;
+    transition: all .2s;
 }
 
 .nav-links a:hover {
@@ -1539,18 +1561,57 @@ footer em {
 
 @media(max-width:767px) {
     .section-wrap {
-        padding: 60px 20px;
+        padding: 56px 16px;
     }
+
+    /* Hero */
+    .hero-name {
+        font-size: clamp(2.4rem, 11vw, 3.5rem);
+        letter-spacing: -1px;
+    }
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+    .hero-cta .btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
+    }
+    .hero-scroll {
+        display: none;
+    }
+
+    /* About */
+    .info-row {
+        flex-direction: column;
+        gap: 2px;
+        padding: 10px 14px;
+    }
+    .info-k {
+        width: auto;
+    }
+
+    /* Contact */
+    .contact-cards {
+        flex-direction: column;
+    }
+    .c-card {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Veille */
     .veille-card {
         flex-direction: column;
         gap: 20px;
-        padding: 24px;
+        padding: 24px 18px;
     }
     .veille-icon {
         font-size: 2.5rem;
     }
     .alerts-list {
-        padding: 16px;
+        padding: 14px;
     }
     .alert-item {
         grid-template-columns: 1fr;
@@ -1563,9 +1624,11 @@ footer em {
     .veille-title {
         font-size: 1.2rem;
     }
-    .hero-scroll {
-        display: none;
+    .veille-description {
+        font-size: .9rem;
     }
+
+    /* Footer */
     footer {
         flex-direction: column;
         gap: 8px;
