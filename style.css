@@ -93,14 +93,20 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 200;
+    z-index: 9000;
     height: auto;
     min-height: 68px;
     background: rgba(8, 12, 20, .92);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
-    transition: background .35s;
+    transition: background .35s, box-shadow .35s, border-color .35s;
     padding: 0;
+    animation: nav-entrance .6s .05s both cubic-bezier(.25,.46,.45,.94);
+}
+
+@keyframes nav-entrance {
+    from { transform: translateY(-100%); opacity: 0; }
+    to   { transform: none; opacity: 1; }
 }
 
 [data-theme="light"] nav {
@@ -1634,5 +1640,254 @@ footer em {
         gap: 8px;
         padding: 20px;
         text-align: center;
+    }
+}
+
+
+/* TABLEAU GOOGLE SHEETS */
+
+#tableau {
+    background: var(--bg);
+}
+
+.sheets-link-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.sheets-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 36px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all .25s;
+    text-decoration: none;
+}
+
+.sheets-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(79,158,255,.15);
+    background: rgba(79,158,255,.06);
+}
+
+.sheets-btn-icon { font-size: 1.4rem; }
+
+.sheets-btn-arrow {
+    font-size: 1rem;
+    opacity: .6;
+    transition: transform .2s, opacity .2s;
+}
+
+.sheets-btn:hover .sheets-btn-arrow {
+    transform: translate(3px, -3px);
+    opacity: 1;
+}
+
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS ORIGINALES
+═══════════════════════════════════════════ */
+
+/* ─── SCROLL PROGRESS ─── */
+#scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px; width: 0%;
+    background: linear-gradient(90deg, var(--accent), var(--judo), var(--accent));
+    background-size: 200% 100%;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(79,158,255,.7), 0 0 20px rgba(79,158,255,.3);
+    animation: progress-shimmer 2s linear infinite;
+}
+@keyframes progress-shimmer {
+    0%   { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+/* ─── CUSTOM CURSOR ─── */
+.has-custom-cursor, .has-custom-cursor * { cursor: none !important; }
+.cursor-dot {
+    position: fixed; top: 0; left: 0;
+    width: 7px; height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%,-50%);
+    will-change: left, top;
+    transition: background .2s, width .15s, height .15s;
+}
+.cursor-ring {
+    position: fixed; top: 0; left: 0;
+    width: 34px; height: 34px;
+    border: 1.5px solid rgba(79,158,255,.4);
+    border-radius: 50%;
+    pointer-events: none; z-index: 9997;
+    transform: translate(-50%,-50%);
+    will-change: left, top;
+    transition: width .2s, height .2s, border-color .2s, background .2s;
+}
+.cursor-ring.hovering {
+    width: 52px; height: 52px;
+    border-color: rgba(79,158,255,.75);
+    background: rgba(79,158,255,.05);
+}
+
+/* ─── GLITCH SUR LE NOM HÉROS ─── */
+@keyframes glitch {
+    0%,95%,100% { text-shadow: none; letter-spacing: -2px; }
+    95.5% {
+        text-shadow: -3px 0 rgba(255,50,100,.9), 3px 0 rgba(0,220,255,.9);
+        letter-spacing: -4px;
+    }
+    96% {
+        text-shadow: 3px 0 rgba(255,50,100,.9), -3px 0 rgba(0,220,255,.9);
+        letter-spacing: 0px;
+    }
+    96.5% {
+        text-shadow: -1px 0 rgba(255,50,100,.5), 1px 0 rgba(0,220,255,.5);
+        letter-spacing: -2px;
+    }
+    97% { text-shadow: none; letter-spacing: -2px; }
+}
+.hero-name { animation: fadeUp .6s .25s forwards, glitch 12s 5s infinite; }
+
+/* ─── PHOTO GLOW ANIMÉ ─── */
+@keyframes glow-breathe {
+    0%,100% { opacity: 1; filter: brightness(1); }
+    50%      { opacity: .65; filter: brightness(1.4) hue-rotate(25deg); }
+}
+.photo-glow { animation: glow-breathe 4s ease-in-out infinite; }
+
+/* ─── TIMELINE — ANNEAUX PULSANTS ─── */
+.tl-dot::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(79,158,255,.5);
+    animation: dot-ring 2.6s ease-out infinite;
+    pointer-events: none;
+}
+.tl-dot-future::after {
+    border-color: rgba(232,184,75,.5);
+    animation-delay: .6s;
+}
+@keyframes dot-ring {
+    0%   { transform: scale(1); opacity: .7; }
+    100% { transform: scale(4); opacity: 0; }
+}
+
+/* ─── NAV — INDICATEUR DE SECTION ACTIVE ─── */
+@media (min-width: 992px) {
+    .nav-links a { position: relative; }
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -3px; left: 0;
+        width: 100%; height: 1.5px;
+        background: var(--accent);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .3s ease;
+        border-radius: 2px;
+    }
+    .nav-links a.nav-active { color: var(--text); }
+    .nav-links a.nav-active::after { transform: scaleX(1); }
+}
+
+/* ─── TAGS — ENTRÉE EN STAGGER ─── */
+.tag {
+    opacity: 0;
+    transform: translateY(5px) scale(.88);
+    transition: opacity .22s ease, transform .22s ease, background .18s, border-color .18s, color .18s;
+}
+.tag.tag-visible { opacity: 1; transform: none; }
+
+/* ─── ORBES AMBIANTS ─── */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(72px);
+    pointer-events: none; z-index: 0;
+    animation: orb-drift 10s ease-in-out infinite;
+}
+@keyframes orb-drift {
+    0%,100% { transform: translate(0, 0); }
+    35%      { transform: translate(28px, -38px); }
+    68%      { transform: translate(-18px, 22px); }
+}
+
+/* ─── SECTION HERO — POSITION RELATIVE POUR LES ORBES ─── */
+#hero .hero-container, #about, #skills, #contact { position: relative; }
+
+/* ─── CARTE 3D — PRESERVE-3D ─── */
+.proj-card, .skill-card { transform-style: preserve-3d; will-change: transform; }
+
+
+/* ═══════════════════════════════════════════
+   NAVBAR — ANIMATIONS IMPRESSIONNANTES
+═══════════════════════════════════════════ */
+
+/* État scrollé — glassmorphism renforcé */
+nav.nav-scrolled {
+    background: rgba(5, 8, 16, .98);
+    border-bottom-color: rgba(79,158,255,.2);
+    box-shadow: 0 8px 48px rgba(0,0,0,.65), inset 0 -1px 0 rgba(79,158,255,.1);
+}
+[data-theme="light"] nav.nav-scrolled {
+    background: rgba(248,250,252,.99);
+    box-shadow: 0 4px 28px rgba(0,0,0,.1), inset 0 -1px 0 rgba(79,158,255,.15);
+}
+
+/* Magic pill — indicateur glissant */
+.nav-pill {
+    position: absolute;
+    background: rgba(79,158,255,.11);
+    border: 1px solid rgba(79,158,255,.22);
+    border-radius: 9px;
+    pointer-events: none;
+    opacity: 0;
+    box-shadow: 0 0 12px rgba(79,158,255,.12);
+    transition:
+        left   .3s cubic-bezier(.25,.46,.45,.94),
+        top    .3s cubic-bezier(.25,.46,.45,.94),
+        width  .3s cubic-bezier(.25,.46,.45,.94),
+        height .3s cubic-bezier(.25,.46,.45,.94),
+        opacity .18s ease;
+}
+
+/* Logo — shimmer au survol */
+.nav-logo {
+    position: relative;
+    overflow: hidden;
+}
+.nav-logo::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -80%;
+    width: 55%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(79,158,255,.45), transparent);
+    transform: skewX(-18deg);
+    transition: left .55s ease;
+    pointer-events: none;
+}
+.nav-logo:hover::after { left: 140%; }
+
+/* Liens nav — glow subtle au survol (desktop) */
+@media (min-width: 992px) {
+    .nav-links a {
+        transition: color .2s, text-shadow .2s;
+    }
+    .nav-links a:hover {
+        color: var(--text);
+        text-shadow: 0 0 20px rgba(79,158,255,.5);
     }
 }

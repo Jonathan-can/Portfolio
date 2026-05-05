@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body><canvas id="bg-canvas"></canvas>
+<body><canvas id="bg-canvas"></canvas><div id="scroll-progress"></div>
     <!-- NAV -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid nav-container">
@@ -20,7 +20,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navMenu">
                 <div class="nav-links ms-auto">
-                    <a href="#about">À propos</a><a href="#parcours">Parcours</a><a href="#judo">Judo</a><a href="#skills">Compétences</a><a href="#projects">Projets</a><a href="#terminal">Terminal</a><a href="#veille">Veille</a><a href="#contact">Contact</a><button id="theme-btn" title="Changer le thème">🌙</button>
+                    <a href="#about">À propos</a><a href="#parcours">Parcours</a><a href="#judo">Judo</a><a href="#skills">Compétences</a><a href="#projects">Projets</a><a href="#terminal">Terminal</a><a href="#veille">Veille</a><a href="#contact">Contact</a><a href="#tableau">Tableau</a><button id="theme-btn" title="Changer le thème">🌙</button>
                 </div>
             </div>
         </div>
@@ -275,7 +275,7 @@
                         <div class="proj-idx">Projet 02</div>
                         <h3 class="proj-title">Gestion des escales — La Rochelle</h3>
                         <p class="proj-desc">Système de gestion des escales du port de La Rochelle. Suivi des navires, planification des quais, gestion des équipages et édition de rapports d'escale. Projet orienté base de données avec interface d'administration complète.</p>
-                        <div class="proj-stack"><span class="proj-tag">PHP</span><span class="proj-tag">Symfony</span><span class="proj-tag">Doctrine</span><span class="proj-tag">MySQL</span><span class="proj-tag">Android Studio</span><span class="proj-tag">Bootstrap</span><span class="proj-tag">REST API</span></div>
+                        <div class="proj-stack"><span class="proj-tag">PHP</span><span class="proj-tag">MySQL</span><span class="proj-tag">Android Studio</span><span class="proj-tag">Bootstrap</span><span class="proj-tag">REST API</span></div>
                         <div class="proj-links"><a href="https://github.com/azevan230/PPE3" target="_blank" class="p-link">GitHub</a></div>
                     </div>
                 </div>
@@ -374,9 +374,23 @@
             </div>
         </div>
     </section>
+    <!-- TABLEAU -->
+    <section id="tableau">
+        <div class="section-wrap">
+            <p class="s-label reveal">09 — Tableau de suivi</p>
+            <h2 class="s-title reveal">Mon <em>tableau</em></h2>
+            <div class="sheets-link-wrap reveal">
+                <a href="tableau.html" target="_blank" rel="noopener" class="sheets-btn">
+                    <span class="sheets-btn-icon">📊</span>
+                    <span class="sheets-btn-label">Voir le tableau de suivi</span>
+                    <span class="sheets-btn-arrow">↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
     <!-- FOOTER -->
     <footer>
-        <div>© 2025 <em>Jonathan CANEVET</em></div>
+        <div>© 2026 <em>Jonathan CANEVET</em></div>
         <div>💻 BTS SIO · 🥋 Ceinture Noire de Judo</div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
