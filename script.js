@@ -344,9 +344,9 @@ const projectData = {
         idx: 'Projet 01',
         isStage: false,
         title: "Amap'market",
-        desc: `Application web complète de gestion d'une AMAP (Association pour le Maintien d'une Agriculture Paysanne), réalisée en équipe dans le cadre du BTS SIO.
+        desc: `Application web de gestion d'une AMAP (Association pour le Maintien d'une Agriculture Paysanne), réalisée en groupe de 4 dans le cadre du BTS SIO. Le site est accessible en ligne à titre de démonstration.
 
-Les adhérents peuvent consulter le catalogue de produits locaux, composer et gérer leurs paniers de commande, et suivre leurs livraisons. Les producteurs disposent d'un espace d'administration pour gérer leur catalogue, les stocks et planifier les distributions.`,
+Les adhérents peuvent consulter le catalogue de produits locaux, composer et gérer leurs paniers de commande. Les producteurs disposent d'un espace d'administration pour gérer leur catalogue, les stocks et planifier les distributions.`,
         features: [
             "Authentification séparée adhérents / producteurs",
             "Catalogue produits avec gestion des stocks",
@@ -363,7 +363,7 @@ Les adhérents peuvent consulter le catalogue de produits locaux, composer et g�
         idx: 'Projet 02',
         isStage: false,
         title: 'Gestion des escales · La Rochelle',
-        desc: `Système de gestion des escales du port de La Rochelle, développé en binôme dans le cadre du BTS SIO. L'application permet le suivi en temps réel des navires, la planification des quais, la gestion des équipages et l'édition de rapports.
+        desc: `Projet fictif réalisé en groupe de 4 dans le cadre du BTS SIO. Système de gestion des escales d'un port : suivi des navires, planification des quais, gestion des équipages et édition de rapports.
 
 Le projet inclut une API REST consommée par une application Android développée en parallèle, permettant aux agents portuaires d'accéder aux informations depuis leur terminal mobile.`,
         features: [
@@ -401,15 +401,16 @@ L'application gère l'inscription des participants, génère automatiquement les
         idx: 'Stage 01 · Batistyl',
         isStage: true,
         title: 'Application Power Apps · Batistyl',
-        desc: `Premier stage en entreprise chez Batistyl, fabricant de menuiseries. J'ai développé en totale autonomie une application métier complète sur Microsoft Power Apps, de la phase de recueil des besoins jusqu'au déploiement en production.
-
-L'application automatise un processus métier clé de l'entreprise avec des workflows Power Automate et des données stockées dans Dataverse / SharePoint. Une expérience complète du cycle de vie d'un projet applicatif.`,
+        desc: `Stage de 6 semaines (mai–juin 2025) chez Batistyl, fabricant de portes et fenêtres. J'ai développé en totale autonomie une application métier sur Microsoft Power Apps, de la phase de recueil des besoins jusqu'à la rédaction de la documentation utilisateur.`,
+        besoins: "Répondre aux besoins des opérateurs réalisant des contrôles qualité sur les portes et fenêtres produites, en leur fournissant un outil numérique adapté à leurs processus internes.",
+        objectifs: "Permettre de réaliser, stocker, modifier et visualiser les contrôles qualité de manière efficace et centralisée, depuis une interface unique et accessible.",
+        plateforme: "Le DSI souhaitait tester Microsoft Power Apps dans l'environnement de l'entreprise. Mon stage a représenté l'opportunité concrète de réaliser cet essai en conditions réelles.",
         features: [
-            "Recueil et analyse des besoins métier",
-            "Conception de l'architecture applicative",
-            "Développement de l'interface Power Apps",
+            "Saisie et réalisation des contrôles qualité",
+            "Stockage centralisé des données de contrôle",
+            "Modification et consultation de l'historique",
             "Automatisation des flux avec Power Automate",
-            "Déploiement et formation des utilisateurs"
+            "Rédaction de la documentation utilisateur"
         ],
         stack: ['Power Apps', 'Power Automate', 'Dataverse', 'SharePoint'],
         img: 'img/batistyl.png',
@@ -420,15 +421,33 @@ L'application automatise un processus métier clé de l'entreprise avec des work
         idx: 'Stage 02 · Sogal',
         isStage: true,
         title: 'Intégration web & refonte · Sogal',
-        desc: `Deuxième stage chez Sogal, spécialiste de l'aménagement intérieur. J'ai travaillé sur deux projets : l'intégration de graphiques de suivi qualité sur un site Symfony existant, et la participation à la refonte complète d'un site web.
-
-Pour les graphiques, j'ai intégré Chart.js dans une application Symfony existante. Pour la refonte, j'ai participé au maquettage et au développement front-end avec SCSS, Twig et Swiper.js.`,
-        features: [
-            "Développement de graphiques qualité avec Chart.js",
-            "Intégration dans une application Symfony existante",
-            "Participation à la refonte front-end d'un site",
-            "Intégration des maquettes avec SCSS et Twig",
-            "Mise en place d'un carrousel Swiper.js"
+        desc: `Stage de 7 semaines (janvier–février 2026) chez Sogal, spécialiste de l'aménagement intérieur. Ce stage s'est articulé autour de deux missions distinctes, présentées ci-dessous.`,
+        parts: [
+            {
+                title: "Partie 1 — Tableaux de bord CA",
+                besoins: "L'équipe avait besoin de visualiser le chiffre d'affaires réalisé par gamme de produits et par agence pour une de leurs sociétés, directement depuis l'application interne Symfony.",
+                objectifs: "Développer des graphiques interactifs permettant de suivre et comparer les performances commerciales (CA) par gamme et par agence.",
+                plateforme: "L'application était déjà développée avec Symfony/Twig. Chart.js a été choisi comme bibliothèque de visualisation, légère et facilement intégrable dans l'environnement existant.",
+                features: [
+                    "Graphiques de suivi du CA par gamme de produits",
+                    "Comparaison des performances entre agences",
+                    "Intégration dans une application Symfony existante",
+                    "Visualisation dynamique des données métier"
+                ]
+            },
+            {
+                title: "Partie 2 — Refonte du site web",
+                besoins: "Le site vitrine de Sogal était vieillissant et ne correspondait plus à l'image moderne que l'entreprise souhaitait véhiculer auprès de ses clients.",
+                objectifs: "Développer plusieurs modules front-end dans le cadre de la refonte du site vitrine de l'entreprise, intégrés ensuite par l'équipe de développement.",
+                plateforme: "Symfony/Twig était déjà l'environnement technique de Sogal. SCSS a été privilégié pour une gestion modulaire des styles, et Swiper.js pour les carrousels dynamiques.",
+                features: [
+                    "Développement de modules front-end intégrés par l'équipe",
+                    "Intégration des maquettes avec SCSS et Twig",
+                    "Carrousel dynamique avec Swiper.js",
+                    "Animations et interactions utilisateur",
+                    "Adaptation responsive des modules développés"
+                ]
+            }
         ],
         stack: ['PHP', 'Symfony', 'Doctrine', 'MySQL', 'Bootstrap', 'Chart.js', 'SCSS', 'Twig', 'Swiper.js'],
         img: 'img/sogal.png',
@@ -451,13 +470,42 @@ Pour les graphiques, j'ai intégré Chart.js dans une application Symfony exista
         document.getElementById('modal-title-el').textContent = d.title;
         document.getElementById('modal-desc-el').textContent = d.desc;
 
-        const featWrap = document.getElementById('modal-feat-wrap');
-        const featEl   = document.getElementById('modal-features');
-        if (d.features && d.features.length) {
-            featEl.innerHTML = '<ul>' + d.features.map(f => `<li>${f}</li>`).join('') + '</ul>';
-            featWrap.style.display = 'block';
+        const partsWrap = document.getElementById('modal-parts-wrap');
+        const ctxWrap   = document.getElementById('modal-context-wrap');
+        const featWrap  = document.getElementById('modal-feat-wrap');
+        const featEl    = document.getElementById('modal-features');
+
+        if (d.parts && d.parts.length) {
+            partsWrap.innerHTML = d.parts.map(p => `
+                <div class="modal-part-sep">${p.title}</div>
+                <div class="modal-section-label">Contexte</div>
+                <div class="modal-context-grid">
+                    <div class="modal-context-item"><div class="modal-context-label">Besoins identifiés</div><div class="modal-context-text">${p.besoins}</div></div>
+                    <div class="modal-context-item"><div class="modal-context-label">Objectifs</div><div class="modal-context-text">${p.objectifs}</div></div>
+                    <div class="modal-context-item"><div class="modal-context-label">Pourquoi cette plateforme ?</div><div class="modal-context-text">${p.plateforme}</div></div>
+                </div>
+                <div class="modal-section-label">Points clés</div>
+                <div class="modal-part-features"><ul>${p.features.map(f => `<li>${f}</li>`).join('')}</ul></div>
+            `).join('');
+            partsWrap.style.display = 'block';
+            ctxWrap.style.display   = 'none';
+            featWrap.style.display  = 'none';
         } else {
-            featWrap.style.display = 'none';
+            partsWrap.style.display = 'none';
+            if (d.besoins || d.objectifs || d.plateforme) {
+                document.getElementById('modal-besoins').textContent   = d.besoins   || '';
+                document.getElementById('modal-objectifs').textContent = d.objectifs || '';
+                document.getElementById('modal-plateforme').textContent = d.plateforme || '';
+                ctxWrap.style.display = 'block';
+            } else {
+                ctxWrap.style.display = 'none';
+            }
+            if (d.features && d.features.length) {
+                featEl.innerHTML = '<ul>' + d.features.map(f => `<li>${f}</li>`).join('') + '</ul>';
+                featWrap.style.display = 'block';
+            } else {
+                featWrap.style.display = 'none';
+            }
         }
 
         document.getElementById('modal-stack').innerHTML =
@@ -505,3 +553,13 @@ Pour les graphiques, j'ai intégré Chart.js dans une application Symfony exista
         if (e.key === 'Escape') closeModal();
     });
 })();
+
+/* VEILLE TABS */
+document.querySelectorAll('.veille-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.veille-tab').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.veille-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('veille-' + btn.dataset.tab).classList.add('active');
+    });
+});
