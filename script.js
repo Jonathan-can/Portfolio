@@ -355,7 +355,7 @@ Les adhérents peuvent consulter le catalogue de produits locaux, composer et g�
             "Design responsive Bootstrap"
         ],
         stack: ['PHP', 'HTML', 'CSS', 'JavaScript', 'MySQL', 'Bootstrap'],
-        img: 'img/amapmarket.jpg',
+        img: 'img/amapmarket.png',
         imgIcon: '🛒',
         links: [{ label: 'GitHub', url: 'https://github.com/Ewen-Evin/AMAPMarket' }]
     },
@@ -374,7 +374,7 @@ Le projet inclut une API REST consommée par une application Android développé
             "Génération et édition de rapports d'escale"
         ],
         stack: ['PHP', 'MySQL', 'Android Studio', 'Bootstrap', 'REST API'],
-        img: 'img/escales.jpg',
+        img: 'img/escales.png',
         imgIcon: '⚓',
         links: [{ label: 'GitHub', url: 'https://github.com/azevan230/PPE3' }]
     },
@@ -393,7 +393,7 @@ L'application gère l'inscription des participants, génère automatiquement les
             "Application Android connectée via REST API"
         ],
         stack: ['PHP', 'Symfony', 'Doctrine', 'MySQL', 'Android Studio', 'Bootstrap', 'REST API'],
-        img: 'img/judo-app.jpg',
+        img: 'img/tournoi.png',
         imgIcon: '🥋',
         links: [{ label: 'GitHub', url: 'https://github.com/dootod/tournois-app-web' }]
     },
@@ -412,7 +412,7 @@ L'application automatise un processus métier clé de l'entreprise avec des work
             "Déploiement et formation des utilisateurs"
         ],
         stack: ['Power Apps', 'Power Automate', 'Dataverse', 'SharePoint'],
-        img: 'img/batistyl.jpg',
+        img: 'img/batistyl.png',
         imgIcon: '📱',
         links: []
     },
@@ -431,7 +431,7 @@ Pour les graphiques, j'ai intégré Chart.js dans une application Symfony exista
             "Mise en place d'un carrousel Swiper.js"
         ],
         stack: ['PHP', 'Symfony', 'Doctrine', 'MySQL', 'Bootstrap', 'Chart.js', 'SCSS', 'Twig', 'Swiper.js'],
-        img: 'img/sogal.jpg',
+        img: 'img/sogal.png',
         imgIcon: '🌐',
         links: []
     }
