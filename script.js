@@ -384,11 +384,11 @@ Le projet inclut une API REST consommée par une application Android développé
         title: 'Gestion de tournois de judo',
         desc: `Application complète de gestion de tournois de judo, combinant un back-end Symfony et une application Android. Ce projet m'a permis d'allier ma passion pour le judo au développement logiciel.
 
-L'application gère l'inscription des participants, génère automatiquement les poules par catégorie de poids, saisit les résultats en temps réel et calcule le classement final. L'app Android consomme l'API REST du back-end.`,
+L'application gère l'inscription des participants, génère les poules par catégorie de poids, saisit les résultats et calcule le classement final. L'app Android consomme l'API REST du back-end.`,
         features: [
             "Inscription et gestion des participants par catégorie",
-            "Tirage automatique des poules",
-            "Saisie des résultats en temps réel",
+            "Tirage des poules par catégorie de poids",
+            "Saisie des résultats",
             "Classement final automatique",
             "Application Android connectée via REST API"
         ],
@@ -401,7 +401,7 @@ L'application gère l'inscription des participants, génère automatiquement les
         idx: 'Stage 01 · Batistyl',
         isStage: true,
         title: 'Application Power Apps · Batistyl',
-        desc: `Stage de 6 semaines (mai–juin 2025) chez Batistyl, fabricant de portes et fenêtres. J'ai développé en totale autonomie une application métier sur Microsoft Power Apps, de la phase de recueil des besoins jusqu'à la rédaction de la documentation utilisateur.`,
+        desc: `Stage de 6 semaines (mai–juin 2025) chez Batistyl, fabricant de portes et fenêtres. J'ai développé en grande autonomie une application métier sur Microsoft Power Apps, de la phase de recueil des besoins jusqu'à la rédaction de la documentation utilisateur.`,
         besoins: "Répondre aux besoins des opérateurs réalisant des contrôles qualité sur les portes et fenêtres produites, en leur fournissant un outil numérique adapté à leurs processus internes.",
         objectifs: "Permettre de réaliser, stocker, modifier et visualiser les contrôles qualité de manière efficace et centralisée, depuis une interface unique et accessible.",
         plateforme: "Le DSI souhaitait tester Microsoft Power Apps dans l'environnement de l'entreprise. Mon stage a représenté l'opportunité concrète de réaliser cet essai en conditions réelles.",
@@ -438,10 +438,10 @@ L'application gère l'inscription des participants, génère automatiquement les
             {
                 title: "Partie 2 — Refonte du site web",
                 besoins: "Le site vitrine de Sogal était vieillissant et ne correspondait plus à l'image moderne que l'entreprise souhaitait véhiculer auprès de ses clients.",
-                objectifs: "Développer plusieurs modules front-end dans le cadre de la refonte du site vitrine de l'entreprise, intégrés ensuite par l'équipe de développement.",
+                objectifs: "Développer et intégrer plusieurs modules front-end dans le cadre de la refonte du site vitrine de l'entreprise.",
                 plateforme: "Symfony/Twig était déjà l'environnement technique de Sogal. SCSS a été privilégié pour une gestion modulaire des styles, et Swiper.js pour les carrousels dynamiques.",
                 features: [
-                    "Développement de modules front-end intégrés par l'équipe",
+                    "Développement et intégration de modules front-end",
                     "Intégration des maquettes avec SCSS et Twig",
                     "Carrousel dynamique avec Swiper.js",
                     "Animations et interactions utilisateur",
