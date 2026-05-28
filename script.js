@@ -118,7 +118,6 @@ if (sg) co.observe(sg);
             <div class="tl to">&nbsp;&nbsp;<span class="tk">stages</span>     · Mes stages en entreprise</div>
             <div class="tl to">&nbsp;&nbsp;<span class="tk">contact</span>    · Me contacter</div>
             <div class="tl to">&nbsp;&nbsp;<span class="tk">judo</span>       · Ma passion pour le judo</div>
-            <div class="tl to">&nbsp;&nbsp;<span class="tk">veille</span>     · Ma veille technologique</div>
             <div class="tl to">&nbsp;&nbsp;<span class="tk">clear</span>      · Effacer le terminal</div>`,
 
         about: () => `
@@ -135,20 +134,20 @@ if (sg) co.observe(sg);
 
         skills: () => `
             <div class="tl to">&#8594; <span class="tk">Langages  </span>: <span class="tv">Java · PHP · JavaScript · C++ · Python · HTML · CSS · SQL</span></div>
-            <div class="tl to">&#8594; <span class="tk">Frameworks</span>: <span class="tv">Symfony · Android Studio · Power Apps · Bootstrap · REST API</span></div>
+            <div class="tl to">&#8594; <span class="tk">Frameworks</span>: <span class="tv">Symfony · Android Studio · Power Apps · Bootstrap · API REST</span></div>
             <div class="tl to">&#8594; <span class="tk">BDD       </span>: <span class="tv">MySQL · SQL Server · NoSQL · Doctrine · SQLite</span></div>
             <div class="tl to">&#8594; <span class="tk">Versioning</span>: <span class="tv">Git · GitHub</span></div>
             <div class="tl to">&#8594; <span class="tk">IA        </span>: <span class="tv">Maîtrise pratique · GitHub Copilot · Claude</span></div>`,
 
         projects: () => `
             <div class="tl to">01 · <span class="tv">Amap'market</span>         : PHP · HTML · CSS · JS · MySQL · Bootstrap</div>
-            <div class="tl to">02 · <span class="tv">Escales La Rochelle</span> : PHP · Symfony · Doctrine · MySQL · Android · REST API</div>
-            <div class="tl to">03 · <span class="tv">Tournois de judo</span>    : PHP · Symfony · Doctrine · MySQL · Android · REST API</div>`,
+            <div class="tl to">02 · <span class="tv">Escales La Rochelle</span> : PHP · MySQL · Android Studio · Bootstrap · API REST</div>
+            <div class="tl to">03 · <span class="tv">Tournois de judo</span>    : PHP · Symfony · Doctrine · MySQL · Android · API REST</div>`,
 
         stages: () => `
             <div class="tl to">S1 · <span class="tv">Batistyl</span> : Application Power Apps de A à Z en autonomie</div>
             <div class="tl to">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tk">Stack</span>: Power Apps · Power Automate · Dataverse · SharePoint</div>
-            <div class="tl to">S2 · <span class="tv">Sogal</span>    : Graphiques qualité + refonte de site web</div>
+            <div class="tl to">S2 · <span class="tv">Sogal</span>    : Graphiques CA + refonte de site web</div>
             <div class="tl to">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tk">Stack</span>: PHP · Symfony · Doctrine · MySQL · Chart.js · SCSS · Twig · Swiper.js</div>`,
 
         contact: () => `
@@ -162,13 +161,6 @@ if (sg) co.observe(sg);
             <div class="tl"><span class="tk">expérience </span> <span class="tv">16 ans de pratique</span></div>
             <div class="tl"><span class="tk">club       </span> <span class="tv">Energie Judo · May-sur-Evre</span></div>`,
 
-        veille: () => `
-            <div class="tl to">── Veille technologique ─────────────</div>
-            <div class="tl to">&#8594; <span class="tk">Symfony</span>  : "Symfony framework" · "Symfony release" · "Symfony security"</div>
-            <div class="tl to">&#8594; <span class="tk">PHP</span>      : "PHP 8" · "PHP news" · "PHP best practices"</div>
-            <div class="tl to">&#8594; <span class="tk">Sécurité</span> : "web security PHP" · "PHP vulnerability"</div>
-            <div class="tl to">Outil : <span class="tv">Google Alerts</span> · notifications quotidiennes</div>
-            <div class="tl to">────────────────────────────────────</div>`,
     };
 
     inp.addEventListener('keydown', e => {
@@ -373,7 +365,7 @@ Le projet inclut une API REST consommée par une application Android développé
             "Application Android native (Android Studio)",
             "Génération et édition de rapports d'escale"
         ],
-        stack: ['PHP', 'MySQL', 'Android Studio', 'Bootstrap', 'REST API'],
+        stack: ['PHP', 'MySQL', 'Android Studio', 'Bootstrap', 'API REST'],
         img: 'img/escales.png',
         imgIcon: '⚓',
         links: [{ label: 'GitHub', url: 'https://github.com/azevan230/PPE3' }]
@@ -390,9 +382,9 @@ L'application gère l'inscription des participants, génère les poules par cat�
             "Tirage des poules par catégorie de poids",
             "Saisie des résultats",
             "Classement final automatique",
-            "Application Android connectée via REST API"
+            "Application Android connectée via API REST"
         ],
-        stack: ['PHP', 'Symfony', 'Doctrine', 'MySQL', 'Android Studio', 'Bootstrap', 'REST API'],
+        stack: ['PHP', 'Symfony', 'Doctrine', 'MySQL', 'Android Studio', 'Bootstrap', 'API REST'],
         img: 'img/tournoi.png',
         imgIcon: '🥋',
         links: [{ label: 'GitHub', url: 'https://github.com/dootod/tournois-app-web' }]
@@ -401,13 +393,13 @@ L'application gère l'inscription des participants, génère les poules par cat�
         idx: 'Stage 01 · Batistyl',
         isStage: true,
         title: 'Application Power Apps · Batistyl',
-        desc: `Stage de 6 semaines (mai–juin 2025) chez Batistyl, fabricant de portes et fenêtres. J'ai développé en grande autonomie une application métier sur Microsoft Power Apps, de la phase de recueil des besoins jusqu'à la rédaction de la documentation utilisateur.`,
+        desc: `Stage de 6 semaines (mai–juin 2025) chez Batistyl, fabricant de portes et fenêtres sur mesure. J'ai développé en grande autonomie une application métier sur Microsoft Power Apps, de la phase de création jusqu'à la rédaction de la documentation utilisateur, en passant par les échanges avec les utilisateurs finaux.`,
         besoins: "Répondre aux besoins des opérateurs réalisant des contrôles qualité sur les portes et fenêtres produites, en leur fournissant un outil numérique adapté à leurs processus internes.",
         objectifs: "Permettre de réaliser, stocker, modifier et visualiser les contrôles qualité de manière efficace et centralisée, depuis une interface unique et accessible.",
         plateforme: "Le DSI souhaitait tester Microsoft Power Apps dans l'environnement de l'entreprise. Mon stage a représenté l'opportunité concrète de réaliser cet essai en conditions réelles.",
         features: [
             "Saisie et réalisation des contrôles qualité",
-            "Stockage centralisé des données de contrôle",
+            "Stockage des données de contrôle",
             "Modification et consultation de l'historique",
             "Automatisation des flux avec Power Automate",
             "Rédaction de la documentation utilisateur"
@@ -425,23 +417,22 @@ L'application gère l'inscription des participants, génère les poules par cat�
         parts: [
             {
                 title: "Partie 1 — Tableaux de bord CA",
-                besoins: "L'équipe avait besoin de visualiser le chiffre d'affaires réalisé par gamme de produits et par agence pour une de leurs sociétés, directement depuis l'application interne Symfony.",
+                besoins: "Les différentes agences d'une des entreprises du groupe avait besoin de visualiser leurs chiffres d'affaires réalisé par gamme de produits et par agence, directement depuis l'application interne Symfony.",
                 objectifs: "Développer des graphiques interactifs permettant de suivre et comparer les performances commerciales (CA) par gamme et par agence.",
                 plateforme: "L'application était déjà développée avec Symfony/Twig. Chart.js a été choisi comme bibliothèque de visualisation, légère et facilement intégrable dans l'environnement existant.",
                 features: [
                     "Graphiques de suivi du CA par gamme de produits",
-                    "Comparaison des performances entre agences",
                     "Intégration dans une application Symfony existante",
                     "Visualisation dynamique des données métier"
                 ]
             },
             {
                 title: "Partie 2 — Refonte du site web",
-                besoins: "Le site vitrine de Sogal était vieillissant et ne correspondait plus à l'image moderne que l'entreprise souhaitait véhiculer auprès de ses clients.",
-                objectifs: "Développer et intégrer plusieurs modules front-end dans le cadre de la refonte du site vitrine de l'entreprise.",
+                besoins: "Le site vitrine de Quadro (une entreprise du groupe) était vieillissant et ne correspondait plus à l'image moderne que l'entreprise souhaitait véhiculer auprès de ses clients.",
+                objectifs: "Développer et intégrer plusieurs modules dans le cadre de la refonte du site vitrine de l'entreprise.",
                 plateforme: "Symfony/Twig était déjà l'environnement technique de Sogal. SCSS a été privilégié pour une gestion modulaire des styles, et Swiper.js pour les carrousels dynamiques.",
                 features: [
-                    "Développement et intégration de modules front-end",
+                    "Développement et intégration de modules",
                     "Intégration des maquettes avec SCSS et Twig",
                     "Carrousel dynamique avec Swiper.js",
                     "Animations et interactions utilisateur",
@@ -554,12 +545,3 @@ L'application gère l'inscription des participants, génère les poules par cat�
     });
 })();
 
-/* VEILLE TABS */
-document.querySelectorAll('.veille-tab').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.veille-tab').forEach(b => b.classList.remove('active'));
-        document.querySelectorAll('.veille-panel').forEach(p => p.classList.remove('active'));
-        btn.classList.add('active');
-        document.getElementById('veille-' + btn.dataset.tab).classList.add('active');
-    });
-});
